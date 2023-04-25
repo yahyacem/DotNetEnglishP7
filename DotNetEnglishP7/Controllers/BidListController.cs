@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
  
@@ -11,36 +13,60 @@ namespace Dot.Net.WebApi.Controllers
     [Route("[controller]")]
     public class BidListController : Controller
     {
+        private IBidListRepository _bidListRepository;
+        public BidListController(IBidListRepository bidListRepository)
+        {
+            _bidListRepository = bidListRepository;
+        }
+        [HttpGet("/bidList/list")]
+        public async Task<BidList[]?> Home()
+        {
+            return await _bidListRepository.GetAllAsync();
+        }
         [HttpGet("/bidList/{id}")]
-        public IActionResult Home()
+        public async Task<BidList?> GetById(int id)
         {
-            return View("/bidList/list");
+            return await _bidListRepository.GetByIdAsync(id);
         }
 
-        [HttpGet("/bidList/validate")]
-        public IActionResult Validate([FromBody]BidList bidList)
+        [HttpPost("/bidList/add")]
+        public async Task<ActionResult<BidList?>> Add([FromBody]BidList bidList)
         {
-            // TODO: check data valid and save to db, after saving return bid list
-            return View("bidList/add");
-        }
-
-        [HttpGet("/bidList/update/{id}")]
-        public IActionResult ShowUpdateForm(int id)
-        {
-            return View("bidList/update");
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return await _bidListRepository.AddAsync(bidList);
         }
 
         [HttpPost("/bidList/update/{id}")]
-        public IActionResult UpdateBid(int id, [FromBody] BidList bidList)
+        public async Task<ActionResult<BidList?>> UpdateBid(int id, [FromBody] BidList bidList)
         {
-            // TODO: check required fields, if valid call service to update Bid and return list Bid
-            return Redirect("/bidList/list");
+            if (!await _bidListRepository.ExistAsync(id))
+            {
+                ModelState.AddModelError("Id", "No Bid List found with this id: " + id);
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            bidList.BidListId = id;
+            return await _bidListRepository.UpdateAsync(bidList);
         }
 
         [HttpDelete("/bidList/{id}")]
-        public IActionResult DeleteBid(int id)
+        public async Task<IActionResult> DeleteBid(int id)
         {
-            return Redirect("/bidList/list");
+            if (!await _bidListRepository.ExistAsync(id))
+            {
+                ModelState.AddModelError("Id", "No Bid List found with this id: " + id);
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await _bidListRepository.DeleteAsync(id);
+            return Ok();
         }
     }
 }

@@ -7,7 +7,9 @@ namespace Dot.Net.WebApi.Domain
         // TODO: Map columns in data table BIDLIST with corresponding fields
         [Key]
         public int BidListId { get; set; }
+        [Required]
         public string Account { get; set; }
+        [Required]
         public string Type { get; set; }
         public double BidQuantity { get; set; }
         public double AskQuantity { get; set; }
