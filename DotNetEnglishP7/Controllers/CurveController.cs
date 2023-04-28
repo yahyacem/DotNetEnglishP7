@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Models;
+using DotNetEnglishP7.Repositories;
+using DotNetEnglishP7.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
  
@@ -11,18 +14,26 @@ namespace Dot.Net.WebApi.Controllers
     [Route("[controller]")]
     public class CurveController : Controller
     {
-        // TODO: Inject Curve Point service
-
-        [HttpGet("/curvePoint/list")]
-        public IActionResult Home()
+        private ICurveService _curveService;
+        public CurveController(ICurveService curveService)
         {
-            return View("curvePoint/list");
+            _curveService = curveService;
         }
 
-        [HttpGet("/curvePoint/add")]
-        public IActionResult AddCurvePoint([FromBody]CurvePoint curvePoint)
+        [HttpGet("/curvePoint/list")]
+        public async Task<List<CurvePointViewModel>> Home()
         {
-            return View("curvePoint/add");
+            return await _curveService.GetAllAsync();
+        }
+
+        [HttpPost("/curvePoint/add")]
+        public async Task<ActionResult<CurvePointViewModel?>> AddCurvePoint([FromBody]CurvePointViewModel curvePoint)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return await _curveService.AddAsync(curvePoint);
         }
 
         [HttpGet("/curvePoint/validate")]

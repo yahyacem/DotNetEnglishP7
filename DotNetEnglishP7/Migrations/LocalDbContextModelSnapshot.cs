@@ -194,6 +194,9 @@ namespace DotNetEnglishP7.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("CurvePointId")
+                        .HasColumnType("int");
+
                     b.Property<double>("Term")
                         .HasColumnType("float");
 

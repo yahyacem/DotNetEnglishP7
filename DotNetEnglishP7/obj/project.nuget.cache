@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "onmyNZsC+aimTINQDWV1g0tM7Y92ZPLtwyCRF9eNasPBPK2cn3ncDBV1LgU9nbG1lcZaWZOhdva/VX1CF2harg==",
+  "dgSpecHash": "TQe80kEVkZA9zOcA/AIuwpVHaySuRbnRF5uV4JUGCSD0DKZPDcdYpyGomgR7hxVZIKjXiM/PEi8Jx+ImC+3Y9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\yahya\\source\\repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\yahya\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\yahya\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\yahya\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\yahya\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
@@ -12,7 +13,7 @@
     "C:\\Users\\yahya\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.9\\microsoft.aspnet.webapi.core.5.2.9.nupkg.sha512",
     "C:\\Users\\yahya\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.2\\microsoft.aspnetcore.openapi.7.0.2.nupkg.sha512",
     "C:\\Users\\yahya\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\yahya\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\yahya\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\yahya\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
     "C:\\Users\\yahya\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
     "C:\\Users\\yahya\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",

@@ -80,3 +80,4 @@ C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\
 C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\System.Web.Http.dll
 C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\AutoMapper.dll
