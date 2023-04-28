@@ -11,7 +11,7 @@ namespace DotNetEnglishP7.Repositories
         {
             DbContext = dbContext;
         }
-        public async Task<BidList?> AddAsync(BidList bidList)
+        public async Task<BidList> AddAsync(BidList bidList)
         {
             if (bidList != null)
             {
@@ -20,30 +20,26 @@ namespace DotNetEnglishP7.Repositories
             }
             return bidList;
         }
-
-        public async Task DeleteAsync(int id)
+        public async Task<BidList> DeleteAsync(BidList bidList)
         {
-            BidList? bidListToDelete = await GetByIdAsync(id);
-            if (bidListToDelete != null)
+            if (bidList != null)
             {
-                DbContext.BidLists.Remove(bidListToDelete);
+                DbContext.BidLists.Remove(bidList);
                 await DbContext.SaveChangesAsync();
             }
+            return bidList;
         }
-
-        public async Task<BidList[]?> GetAllAsync()
+        public async Task<List<BidList>> GetAllAsync()
         {
-            return await DbContext.BidLists.ToArrayAsync();
+            return await DbContext.BidLists.ToListAsync();
         }
-
         public async Task<BidList?> GetByIdAsync(int id)
         {
             return await DbContext.BidLists.FirstOrDefaultAsync(x => x.BidListId == id);
         }
-
-        public async Task<BidList?> UpdateAsync(BidList bidList)
+        public async Task<BidList> UpdateAsync(BidList bidList)
         {
-            if (bidList != null && await ExistAsync(bidList.BidListId))
+            if (bidList != null)
             {
                 DbContext.BidLists.Update(bidList);
                 await DbContext.SaveChangesAsync();

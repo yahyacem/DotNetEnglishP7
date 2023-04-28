@@ -1,15 +1,20 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dot.Net.WebApi.Controllers.Domain
 {
     public class Rating
     {
-        // TODO: Map columns in data table RATING with corresponding fields
         [Key]
-        public int Id { get; set; }
-        public string MoodysRating { get; set; }
-        public string SandPRating { get; set; }
-        public string FitchRating { get; set; }
-        public int OrderNumber { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; private set; }
+        public void SetId(int id)
+        {
+            Id = id;
+        }
+        public string? MoodysRating { get; set; }
+        public string? SandPRating { get; set; }
+        public string? FitchRating { get; set; }
+        public int? OrderNumber { get; set; }
     }
 }

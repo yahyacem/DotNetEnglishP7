@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dot.Net.WebApi.Domain;
 using DotNetEnglishP7.Repositories;
+using DotNetEnglishP7.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
  
@@ -13,60 +14,56 @@ namespace Dot.Net.WebApi.Controllers
     [Route("[controller]")]
     public class BidListController : Controller
     {
-        private IBidListRepository _bidListRepository;
-        public BidListController(IBidListRepository bidListRepository)
+        private IBidListService _bidListService;
+        public BidListController(IBidListService bidListService)
         {
-            _bidListRepository = bidListRepository;
+            _bidListService = bidListService;
         }
         [HttpGet("/bidList/list")]
-        public async Task<BidList[]?> Home()
+        public async Task<ActionResult<List<BidList>>> Home()
         {
-            return await _bidListRepository.GetAllAsync();
+            return Ok(await _bidListService.GetAllAsync());
         }
         [HttpGet("/bidList/{id}")]
-        public async Task<BidList?> GetById(int id)
+        public async Task<ActionResult<BidList>> GetById(int id)
         {
-            return await _bidListRepository.GetByIdAsync(id);
+            BidList? bidList = await _bidListService.GetByIdAsync(id);
+            return bidList == null ? NotFound() : Ok(bidList);
         }
-
         [HttpPost("/bidList/add")]
-        public async Task<ActionResult<BidList?>> Add([FromBody]BidList bidList)
+        public async Task<ActionResult<BidList>> AddCurvePoint([FromBody] BidList bidList)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            return await _bidListRepository.AddAsync(bidList);
+            BidList createdBidList = await _bidListService.AddAsync(bidList);
+            return CreatedAtAction(nameof(GetById), new { id = bidList.BidListId }, createdBidList);
         }
-
         [HttpPost("/bidList/update/{id}")]
-        public async Task<ActionResult<BidList?>> UpdateBid(int id, [FromBody] BidList bidList)
+        public async Task<ActionResult<BidList>> UpdateCurvePoint(int id, [FromBody] BidList bidList)
         {
-            if (!await _bidListRepository.ExistAsync(id))
+            if (!await _bidListService.ExistAsync(id))
             {
-                ModelState.AddModelError("Id", "No Bid List found with this id: " + id);
+                return NotFound();
             }
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            bidList.BidListId = id;
-            return await _bidListRepository.UpdateAsync(bidList);
+            bidList.SetBidListId(id);
+            BidList? updatedBidList = await _bidListService.UpdateAsync(bidList);
+            return updatedBidList == null ? NotFound() : Ok(updatedBidList);
         }
-
         [HttpDelete("/bidList/{id}")]
-        public async Task<IActionResult> DeleteBid(int id)
+        public async Task<ActionResult> DeleteBid(int id)
         {
-            if (!await _bidListRepository.ExistAsync(id))
-            {
-                ModelState.AddModelError("Id", "No Bid List found with this id: " + id);
-            }
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            await _bidListRepository.DeleteAsync(id);
-            return Ok();
+            BidList? deletedBidList = await _bidListService.DeleteAsync(id);
+            return deletedBidList == null ? NotFound() : Ok(deletedBidList);
         }
     }
 }

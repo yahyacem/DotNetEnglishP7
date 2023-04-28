@@ -20,7 +20,6 @@ namespace DotNetEnglishP7.Repositories
             }
             return curvePoint;
         }
-
         public async Task<CurvePoint?> DeleteAsync(CurvePoint curvePoint)
         {
             if (curvePoint != null)
@@ -30,22 +29,18 @@ namespace DotNetEnglishP7.Repositories
             }
             return curvePoint;
         }
-
         public async Task<bool> ExistAsync(int id)
         {
             return await DbContext.CurvePoints.AnyAsync(x => x.Id == id);
         }
-
         public async Task<List<CurvePoint>> GetAllAsync()
         {
             return await DbContext.CurvePoints.ToListAsync();
         }
-
         public async Task<CurvePoint?> GetByIdAsync(int id)
         {
             return await DbContext.CurvePoints.FirstOrDefaultAsync(x => x.Id == id);
         }
-
         public async Task<CurvePoint> UpdateAsync(CurvePoint curvePoint)
         {
             if (curvePoint != null)

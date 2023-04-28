@@ -36,7 +36,6 @@ namespace Dot.Net.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             CurvePoint createdCurvePoint = await _curveService.AddAsync(curvePoint);
             return CreatedAtAction(nameof(GetById), new { id = curvePoint.Id }, createdCurvePoint);
         }
@@ -52,8 +51,8 @@ namespace Dot.Net.WebApi.Controllers
                 return BadRequest(ModelState);
             }
             curvePoint.SetId(id);
-            CurvePoint? curvePointUpdated = await _curveService.UpdateAsync(curvePoint);
-            return curvePointUpdated == null ? NotFound() : Ok(curvePointUpdated);
+            CurvePoint? updatedCurvePoint = await _curveService.UpdateAsync(curvePoint);
+            return updatedCurvePoint == null ? NotFound() : Ok(updatedCurvePoint);
         }
         [HttpDelete("/curvepoint/{id}")]
         public async Task<ActionResult> DeleteBid(int id)
@@ -62,9 +61,8 @@ namespace Dot.Net.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            CurvePoint? curvePointDeleted = await _curveService.DeleteAsync(id);
-            return curvePointDeleted == null ? NotFound() : Ok(curvePointDeleted);
+            CurvePoint? deletedCurvePoint = await _curveService.DeleteAsync(id);
+            return deletedCurvePoint == null ? NotFound() : Ok(deletedCurvePoint);
         }
     }
 }
