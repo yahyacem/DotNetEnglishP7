@@ -11,7 +11,7 @@ namespace DotNetEnglishP7.Repositories
         {
             DbContext= _dbContext;
         }
-        public async Task<CurvePoint?> AddAsync(CurvePoint curvePoint)
+        public async Task<CurvePoint> AddAsync(CurvePoint curvePoint)
         {
             if (curvePoint != null)
             {
@@ -21,15 +21,14 @@ namespace DotNetEnglishP7.Repositories
             return curvePoint;
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task<CurvePoint?> DeleteAsync(CurvePoint curvePoint)
         {
-            CurvePoint? curvePointToDelete = await DbContext.CurvePoints
-                .FirstOrDefaultAsync(x => x.Id == id);
-            if (curvePointToDelete != null)
+            if (curvePoint != null)
             {
-                DbContext.CurvePoints.Remove(curvePointToDelete);
-                DbContext.SaveChanges();
+                DbContext.CurvePoints.Remove(curvePoint);
+                await DbContext.SaveChangesAsync();
             }
+            return curvePoint;
         }
 
         public async Task<bool> ExistAsync(int id)
@@ -47,9 +46,9 @@ namespace DotNetEnglishP7.Repositories
             return await DbContext.CurvePoints.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<CurvePoint?> UpdateAsync(CurvePoint curvePoint)
+        public async Task<CurvePoint> UpdateAsync(CurvePoint curvePoint)
         {
-            if (curvePoint != null && await ExistAsync(curvePoint.Id))
+            if (curvePoint != null)
             {
                 DbContext.CurvePoints.Update(curvePoint);
                 await DbContext.SaveChangesAsync();

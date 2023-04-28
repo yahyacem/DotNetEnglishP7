@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Dot.Net.WebApi.Domain;
-using DotNetEnglishP7.Mappers;
+﻿using Dot.Net.WebApi.Domain;
 using DotNetEnglishP7.Repositories;
 
 namespace DotNetEnglishP7.Services
@@ -8,41 +6,42 @@ namespace DotNetEnglishP7.Services
     public class CurveService : ICurveService
     {
         private ICurveRepository _curveRepository;
-        private static IMapper _mapper = MappingProfile.InitializeAutoMapper().CreateMapper();
         public CurveService(ICurveRepository curveRepository)
         {
             _curveRepository = curveRepository;
         }
-        public async Task<CurvePoint?> AddAsync(CurvePoint curvePoint)
+        public async Task<CurvePoint> AddAsync(CurvePoint curvePoint)
         {
             return await _curveRepository.AddAsync(curvePoint);
         }
-        public async Task DeleteAsync(int id)
+        public async Task<CurvePoint?> DeleteAsync(int id)
         {
-
-            if (id != null)
+            CurvePoint? curvePointToDelete = await _curveRepository.GetByIdAsync(id);
+            if (curvePointToDelete != null)
             {
-                await _curveRepository.DeleteAsync(id);
+                await _curveRepository.DeleteAsync(curvePointToDelete);
             }
+            return curvePointToDelete;
         }
         public async Task<List<CurvePoint>> GetAllAsync()
         {
-            var curveEntities = await _curveRepository.GetAllAsync();
-            var curveViewModels = new List<CurvePoint>();
-
-            foreach (var curveEntity in curveEntities)
+            return await _curveRepository.GetAllAsync();
+        }
+        public async Task<CurvePoint?> GetByIdAsync(int id)
+        {
+            return await _curveRepository.GetByIdAsync(id);
+        }
+        public async Task<CurvePoint> UpdateAsync(CurvePoint curvePoint)
+        {
+            if (curvePoint != null)
             {
-                curveViewModels.Add(_mapper.Map<CurvePoint>(curveEntity));
+                await _curveRepository.UpdateAsync(curvePoint);
             }
-            return curveViewModels;
+            return curvePoint;
         }
-        public Task<CurvePoint?> GetByIdAsync(int id)
+        public async Task<bool> ExistAsync(int id)
         {
-            throw new NotImplementedException();
-        }
-        public Task<CurvePoint?> UpdateAsync(CurvePoint curvePointViewModel)
-        {
-            throw new NotImplementedException();
+            return await _curveRepository.ExistAsync(id);
         }
     }
 }

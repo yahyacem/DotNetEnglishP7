@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dot.Net.WebApi.Domain;
-using DotNetEnglishP7.Models;
 using DotNetEnglishP7.Repositories;
 using DotNetEnglishP7.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -19,50 +18,53 @@ namespace Dot.Net.WebApi.Controllers
         {
             _curveService = curveService;
         }
-
         [HttpGet("/curvePoint/list")]
-        public async Task<List<CurvePointViewModel>> Home()
+        public async Task<ActionResult<List<CurvePoint>>> Home()
         {
-            return await _curveService.GetAllAsync();
+            return Ok(await _curveService.GetAllAsync());
         }
-
+        [HttpGet("/curvePoint/{id}")]
+        public async Task<ActionResult<CurvePoint>> GetById(int id)
+        {
+            CurvePoint? curvePoint = await _curveService.GetByIdAsync(id);
+            return curvePoint == null ? NotFound() : Ok(curvePoint);
+        }
         [HttpPost("/curvePoint/add")]
-        public async Task<ActionResult<CurvePointViewModel?>> AddCurvePoint([FromBody]CurvePointViewModel curvePoint)
+        public async Task<ActionResult<CurvePoint>> AddCurvePoint([FromBody]CurvePoint curvePoint)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            return await _curveService.AddAsync(curvePoint);
-        }
 
-        [HttpGet("/curvePoint/validate")]
-        public IActionResult Validate([FromBody]CurvePoint curvePoint)
-        {
-            // TODO: check data valid and save to db, after saving return bid list
-            return View("curvePoint/add"    );
+            CurvePoint createdCurvePoint = await _curveService.AddAsync(curvePoint);
+            return CreatedAtAction(nameof(GetById), new { id = curvePoint.Id }, createdCurvePoint);
         }
-
-        [HttpGet("/curvePoint/update/{id}")]
-        public IActionResult ShowUpdateForm(int id)
-        {
-            // TODO: get CurvePoint by Id and to model then show to the form
-            return View("curvepoint/update");
-        }
-
         [HttpPost("/curvepoint/update/{id}")]
-        public IActionResult UpdateCurvePoint(int id, [FromBody] CurvePoint curvePoint)
+        public async Task<ActionResult<CurvePoint>> UpdateCurvePoint(int id, [FromBody] CurvePoint curvePoint)
         {
-            // TODO: check required fields, if valid call service to update Curve and return Curve list
-            return Redirect("/curvepoint/list");
+            if (!await _curveService.ExistAsync(id))
+            {
+                return NotFound();
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            curvePoint.SetId(id);
+            CurvePoint? curvePointUpdated = await _curveService.UpdateAsync(curvePoint);
+            return curvePointUpdated == null ? NotFound() : Ok(curvePointUpdated);
         }
-
         [HttpDelete("/curvepoint/{id}")]
-        public IActionResult DeleteBid(int id)
+        public async Task<ActionResult> DeleteBid(int id)
         {
-            // TODO: Find Curve by Id and delete the Curve, return to Curve list
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            return Redirect("/curvePoint/list");
+            CurvePoint? curvePointDeleted = await _curveService.DeleteAsync(id);
+            return curvePointDeleted == null ? NotFound() : Ok(curvePointDeleted);
         }
     }
 }

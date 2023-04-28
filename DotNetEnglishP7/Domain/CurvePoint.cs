@@ -1,14 +1,18 @@
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 namespace Dot.Net.WebApi.Domain
 {
     public class CurvePoint
     {
-        // TODO: Map columns in data table CURVEPOINT with corresponding fields
         [Key]
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; private set; }
+        public void SetId(int id)
+        {
+            Id = id;
+        }
         [Required]
-        public int CurvePointId { get; set; }
+        public int? CurvePointId { get; set; }
         public DateTime AsOfDate { get; set; }
         public double Term { get; set; }
         public double Value { get; set; }
