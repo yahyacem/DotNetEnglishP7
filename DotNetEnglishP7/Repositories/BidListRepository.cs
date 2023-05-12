@@ -11,7 +11,7 @@ namespace DotNetEnglishP7.Repositories
         {
             DbContext = dbContext;
         }
-        public async Task<BidList> AddAsync(BidList bidList)
+        public async Task<BidList?> AddAsync(BidList bidList)
         {
             if (bidList != null)
             {
@@ -20,7 +20,7 @@ namespace DotNetEnglishP7.Repositories
             }
             return bidList;
         }
-        public async Task<BidList> DeleteAsync(BidList bidList)
+        public async Task<BidList?> DeleteAsync(BidList bidList)
         {
             if (bidList != null)
             {
@@ -37,10 +37,14 @@ namespace DotNetEnglishP7.Repositories
         {
             return await DbContext.BidLists.FirstOrDefaultAsync(x => x.BidListId == id);
         }
-        public async Task<BidList> UpdateAsync(BidList bidList)
+        public async Task<BidList?> UpdateAsync(BidList bidList)
         {
             if (bidList != null)
             {
+                BidList? existing = DbContext.BidLists.Local.SingleOrDefault(x => x.BidListId == bidList.BidListId);
+                if (existing != null)
+                    DbContext.Entry(existing).State = EntityState.Detached;
+
                 DbContext.BidLists.Update(bidList);
                 await DbContext.SaveChangesAsync();
             }

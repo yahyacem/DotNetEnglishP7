@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ycherkao\\Source\\Repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj": {}
+    "C:\\Users\\yahya\\source\\repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ycherkao\\Source\\Repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj": {
+    "C:\\Users\\yahya\\source\\repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ycherkao\\Source\\Repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj",
+        "projectUniqueName": "C:\\Users\\yahya\\source\\repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj",
         "projectName": "DotNetEnglishP7",
-        "projectPath": "C:\\Users\\ycherkao\\Source\\Repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj",
-        "packagesPath": "C:\\Users\\ycherkao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ycherkao\\Source\\Repos\\DotNetEnglishP7\\DotNetEnglishP7\\obj\\",
+        "projectPath": "C:\\Users\\yahya\\source\\repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj",
+        "packagesPath": "C:\\Users\\yahya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yahya\\source\\repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ycherkao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yahya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,6 +53,10 @@
               "version": "[7.0.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[7.0.5, )"
             },
@@ -90,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

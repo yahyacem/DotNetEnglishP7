@@ -260,6 +260,22 @@
           "build/net6.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/7.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.5"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Proxies/7.0.5": {
         "type": "package",
         "dependencies": {
@@ -1654,6 +1670,20 @@
         "lib/net6.0/Microsoft.EntityFrameworkCore.Design.xml",
         "microsoft.entityframeworkcore.design.7.0.5.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/7.0.5": {
+      "sha512": "y3S/A/0uJX7KOhppC3xqyta6Z0PRz0qPLngH5GFu4GZ7/+Sw2u/amf7MavvR5GfZjGabGcohMpsRSahMmpF9gA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/7.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.7.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Proxies/7.0.5": {
@@ -4066,6 +4096,7 @@
       "AutoMapper >= 12.0.1",
       "Microsoft.AspNetCore.OpenApi >= 7.0.2",
       "Microsoft.EntityFrameworkCore >= 7.0.5",
+      "Microsoft.EntityFrameworkCore.InMemory >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Proxies >= 7.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
@@ -4073,19 +4104,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ycherkao\\.nuget\\packages\\": {}
+    "C:\\Users\\yahya\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ycherkao\\Source\\Repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj",
+      "projectUniqueName": "C:\\Users\\yahya\\source\\repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj",
       "projectName": "DotNetEnglishP7",
-      "projectPath": "C:\\Users\\ycherkao\\Source\\Repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj",
-      "packagesPath": "C:\\Users\\ycherkao\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ycherkao\\Source\\Repos\\DotNetEnglishP7\\DotNetEnglishP7\\obj\\",
+      "projectPath": "C:\\Users\\yahya\\source\\repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7.csproj",
+      "packagesPath": "C:\\Users\\yahya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\yahya\\source\\repos\\DotNetEnglishP7\\DotNetEnglishP7\\DotNetEnglishP7\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\ycherkao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yahya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4120,6 +4156,10 @@
             "version": "[7.0.2, )"
           },
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.5, )"
+          },
+          "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "[7.0.5, )"
           },
@@ -4161,7 +4201,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

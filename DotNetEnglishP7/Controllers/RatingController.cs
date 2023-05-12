@@ -1,9 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Dot.Net.WebApi.Controllers.Domain;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
  
@@ -12,47 +13,58 @@ namespace Dot.Net.WebApi.Controllers
     [Route("[controller]")]
     public class RatingController : Controller
     {
-        // TODO: Inject Rating service
+        IRatingService _ratingService;
+        public RatingController(IRatingService ratingService)
+        {
+            _ratingService = ratingService;
+        }
 
         [HttpGet("/rating/list")]
-        public IActionResult Home()
+        public async Task<IActionResult> Home()
         {
-            // TODO: find all Rating, add to model
-            return View("rating/list");
+            return Ok(await _ratingService.GetAllAsync());
         }
-
-        [HttpGet("/rating/add")]
-        public IActionResult AddRatingForm([FromBody]Rating rating)
+        [HttpGet("/rating/{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
-            return View("rating/add");
+            Rating? rating = await _ratingService.GetByIdAsync(id);
+            if (rating == null)
+            {
+                return NotFound();
+            }
+            return Ok(rating);
         }
-
-        [HttpGet("/rating/validate")]
-        public IActionResult Validate([FromBody]Rating rating)
+        [HttpPost("/rating/add")]
+        public async Task<IActionResult> Add([FromBody]Rating rating)
         {
-            // TODO: check data valid and save to db, after saving return Rating list
-            return View("rating/add");
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            Rating? createdRating = await _ratingService.AddAsync(rating);
+            return createdRating != null ? CreatedAtAction(nameof(GetById), new { id = rating.Id }, createdRating) : StatusCode(500);
         }
-
-        [HttpGet("/rating/update/{id}")]
-        public IActionResult ShowUpdateForm(int id)
-        {
-            // TODO: get Rating by Id and to model then show to the form
-            return View("rating/update");
-        }
-
         [HttpPost("/rating/update/{id}")]
-        public IActionResult updateRating(int id, [FromBody] Rating rating)
+        public async Task<IActionResult> Update(int id, [FromBody] Rating rating)
         {
-            // TODO: check required fields, if valid call service to update Rating and return Rating list
-            return Redirect("/rating/list");
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            rating.SetId(id);
+            Rating? updatedRating = await _ratingService.UpdateAsync(rating);
+            return updatedRating == null ? NotFound() : Ok(updatedRating);
         }
 
         [HttpDelete("/rating/{id}")]
-        public IActionResult DeleteRating(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            // TODO: Find Rating by Id and delete the Rating, return to Rating list
-            return Redirect("/rating/list");
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            Rating? deletedRating = await _ratingService.DeleteAsync(id);
+            return deletedRating == null ? NotFound() : Ok(deletedRating);
         }
     }
 }

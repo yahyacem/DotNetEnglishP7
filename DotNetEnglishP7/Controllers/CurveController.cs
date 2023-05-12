@@ -19,33 +19,29 @@ namespace Dot.Net.WebApi.Controllers
             _curveService = curveService;
         }
         [HttpGet("/curvePoint/list")]
-        public async Task<ActionResult<List<CurvePoint>>> Home()
+        public async Task<IActionResult> Home()
         {
             return Ok(await _curveService.GetAllAsync());
         }
         [HttpGet("/curvePoint/{id}")]
-        public async Task<ActionResult<CurvePoint>> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             CurvePoint? curvePoint = await _curveService.GetByIdAsync(id);
             return curvePoint == null ? NotFound() : Ok(curvePoint);
         }
         [HttpPost("/curvePoint/add")]
-        public async Task<ActionResult<CurvePoint>> AddCurvePoint([FromBody]CurvePoint curvePoint)
+        public async Task<IActionResult> Add([FromBody]CurvePoint curvePoint)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            CurvePoint createdCurvePoint = await _curveService.AddAsync(curvePoint);
-            return CreatedAtAction(nameof(GetById), new { id = curvePoint.Id }, createdCurvePoint);
+            CurvePoint? createdCurvePoint = await _curveService.AddAsync(curvePoint);
+            return createdCurvePoint != null ? CreatedAtAction(nameof(GetById), new { id = curvePoint.Id }, createdCurvePoint) : StatusCode(500);
         }
         [HttpPost("/curvepoint/update/{id}")]
-        public async Task<ActionResult<CurvePoint>> UpdateCurvePoint(int id, [FromBody] CurvePoint curvePoint)
+        public async Task<IActionResult> Update(int id, [FromBody] CurvePoint curvePoint)
         {
-            if (!await _curveService.ExistAsync(id))
-            {
-                return NotFound();
-            }
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -55,7 +51,7 @@ namespace Dot.Net.WebApi.Controllers
             return updatedCurvePoint == null ? NotFound() : Ok(updatedCurvePoint);
         }
         [HttpDelete("/curvepoint/{id}")]
-        public async Task<ActionResult> DeleteBid(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (!ModelState.IsValid)
             {

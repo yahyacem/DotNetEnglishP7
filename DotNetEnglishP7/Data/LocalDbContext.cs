@@ -2,7 +2,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Dot.Net.WebApi.Domain;
-using Dot.Net.WebApi.Controllers.Domain;
 
 namespace Dot.Net.WebApi.Data
 {

@@ -19,17 +19,17 @@ namespace Dot.Net.WebApi.Controllers
             this._userRepository = userRepository;
         }
 
-        [HttpGet("/login")]
-        public IActionResult Login()
-        {
-            return View("login");
-        }
+        //[HttpGet("/login")]
+        //public IActionResult Login()
+        //{
+        //    return View("login");
+        //}
 
-        [HttpGet("/secure/article-details")]
-        public async Task<IActionResult> GetAllUserArticles()
-        {
-            return View(await _userRepository.FindAllAsync());
-        }
+        //[HttpGet("/secure/article-details")]
+        //public async Task<IActionResult> GetAllUserArticles()
+        //{
+        //    return View(await _userRepository.FindAllAsync());
+        //}
 
         [HttpGet("/error")]
         public IActionResult Error()

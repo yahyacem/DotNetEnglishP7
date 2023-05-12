@@ -11,7 +11,7 @@ namespace DotNetEnglishP7.Repositories
         {
             DbContext= _dbContext;
         }
-        public async Task<CurvePoint> AddAsync(CurvePoint curvePoint)
+        public async Task<CurvePoint?> AddAsync(CurvePoint curvePoint)
         {
             if (curvePoint != null)
             {
@@ -41,10 +41,14 @@ namespace DotNetEnglishP7.Repositories
         {
             return await DbContext.CurvePoints.FirstOrDefaultAsync(x => x.Id == id);
         }
-        public async Task<CurvePoint> UpdateAsync(CurvePoint curvePoint)
+        public async Task<CurvePoint?> UpdateAsync(CurvePoint curvePoint)
         {
             if (curvePoint != null)
             {
+                CurvePoint? existing = DbContext.CurvePoints.Local.SingleOrDefault(x => x.Id == curvePoint.Id);
+                if (existing != null)
+                    DbContext.Entry(existing).State = EntityState.Detached;
+
                 DbContext.CurvePoints.Update(curvePoint);
                 await DbContext.SaveChangesAsync();
             }

@@ -21,10 +21,20 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<ICurveService, CurveService>();
-builder.Services.AddTransient<IBidListRepository, BidListRepository>();
-builder.Services.AddTransient<ICurveRepository, CurveRepository>();
-builder.Services.AddTransient<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped<ITradeService, TradeService>();
+builder.Services.AddScoped<IRuleService, RuleService>();
+builder.Services.AddScoped<IRatingService, RatingService>();
+builder.Services.AddScoped<ICurveService, CurveService>();
+builder.Services.AddScoped<IBidListService, BidListService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<ITradeRepository, TradeRepository>();
+builder.Services.AddScoped<IRuleRepository, RuleRepository>();
+builder.Services.AddScoped<IRatingRepository, RatingRepository>();
+builder.Services.AddScoped<IBidListRepository, BidListRepository>();
+builder.Services.AddScoped<ICurveRepository, CurveRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

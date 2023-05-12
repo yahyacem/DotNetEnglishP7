@@ -10,7 +10,7 @@ namespace DotNetEnglishP7.Services
         {
             _bidListRepository = bidListRepository;
         }
-        public async Task<BidList> AddAsync(BidList curvePoint)
+        public async Task<BidList?> AddAsync(BidList curvePoint)
         {
             return await _bidListRepository.AddAsync(curvePoint);
         }
@@ -31,13 +31,15 @@ namespace DotNetEnglishP7.Services
         {
             return await _bidListRepository.GetByIdAsync(id);
         }
-        public async Task<BidList> UpdateAsync(BidList bidList)
+        public async Task<BidList?> UpdateAsync(BidList bidList)
         {
-            if (bidList != null)
+            BidList? bidListToUpdate = await _bidListRepository.GetByIdAsync(bidList.BidListId);
+            if (bidListToUpdate != null)
             {
-                await _bidListRepository.UpdateAsync(bidList);
+                bidListToUpdate = bidList;
+                await _bidListRepository.UpdateAsync(bidListToUpdate);
             }
-            return bidList;
+            return bidListToUpdate;
         }
         public async Task<bool> ExistAsync(int id)
         {

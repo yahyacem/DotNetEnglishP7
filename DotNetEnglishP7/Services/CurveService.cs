@@ -10,7 +10,7 @@ namespace DotNetEnglishP7.Services
         {
             _curveRepository = curveRepository;
         }
-        public async Task<CurvePoint> AddAsync(CurvePoint curvePoint)
+        public async Task<CurvePoint?> AddAsync(CurvePoint curvePoint)
         {
             return await _curveRepository.AddAsync(curvePoint);
         }
@@ -31,13 +31,15 @@ namespace DotNetEnglishP7.Services
         {
             return await _curveRepository.GetByIdAsync(id);
         }
-        public async Task<CurvePoint> UpdateAsync(CurvePoint curvePoint)
+        public async Task<CurvePoint?> UpdateAsync(CurvePoint curvePoint)
         {
-            if (curvePoint != null)
+            CurvePoint? curvePointToUpdate = await _curveRepository.GetByIdAsync(curvePoint.Id);
+            if (curvePointToUpdate != null)
             {
-                await _curveRepository.UpdateAsync(curvePoint);
+                curvePointToUpdate = curvePoint;
+                await _curveRepository.UpdateAsync(curvePointToUpdate);
             }
-            return curvePoint;
+            return curvePointToUpdate;
         }
         public async Task<bool> ExistAsync(int id)
         {

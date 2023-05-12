@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Dot.Net.WebApi.Domain;
 using Dot.Net.WebApi.Repositories;
 using DotNetEnglishP7.Repositories;
+using DotNetEnglishP7.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
  
@@ -14,59 +16,53 @@ namespace Dot.Net.WebApi.Controllers
     [Route("[controller]")]
     public class UserController : Controller
     {
-        private IUserRepository _userRepository;
-
-        public UserController(IUserRepository userRepository)
+        private IUserService _userService;
+        public UserController(IUserService userService)
         {
-            _userRepository = userRepository;
+            _userService = userService;
         }
-
         [HttpGet("/user/list")]
-        public async Task<User[]?> Home()
+        public async Task<IActionResult> Home()
         {
-            return await _userRepository.FindAllAsync();
+            return Ok(await _userService.GetAllAsync());
         }
-
+        [HttpGet("/trade/{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            User? user = await _userService.GetByIdAsync(id);
+            return user == null ? NotFound() : Ok(user);
+        }
         [HttpPost("/user/add")]
-        public async Task<ActionResult<User?>> AddUser([FromBody]User user)
+        public async Task<IActionResult> Add([FromBody]User user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            var newUser = await _userRepository.AddAsync(user);
-
-            return newUser;
+            User? createdUser = await _userService.AddAsync(user);
+            return createdUser != null ? CreatedAtAction(nameof(GetById), new { id = user.Id }, createdUser) : StatusCode(500);
         }
-
         [HttpPost("/user/update/{id}")]
-        public async Task<ActionResult<User?>> updateUser(int id, [FromBody] User user)
+        public async Task<IActionResult> Update(int id, [FromBody] User user)
         {
-            if (!await _userRepository.ExistAsync(id))
-                ModelState.AddModelError("Id", "Invalid user Id: " + id);
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            user.Id = id;
-            return await _userRepository.UpdateAsync(user);
+            user.SetId(id);
+            User? updatedUser = await _userService.UpdateAsync(user);
+            return updatedUser == null ? NotFound() : Ok(updatedUser);
         }
 
         [HttpDelete("/user/{id}")]
-        public async Task<ActionResult<User[]?>> DeleteUser(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (!await _userRepository.ExistAsync(id))
-                ModelState.AddModelError("Id", "Invalid user Id: " + id);
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            await _userRepository.DeleteAsync(id);
-            return await _userRepository.FindAllAsync();
+            User? deletedUser = await _userService.DeleteAsync(id);
+            return deletedUser == null ? NotFound() : Ok(deletedUser);
         }
     }
 }

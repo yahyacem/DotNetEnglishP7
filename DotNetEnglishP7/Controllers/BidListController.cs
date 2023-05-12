@@ -20,33 +20,29 @@ namespace Dot.Net.WebApi.Controllers
             _bidListService = bidListService;
         }
         [HttpGet("/bidList/list")]
-        public async Task<ActionResult<List<BidList>>> Home()
+        public async Task<IActionResult> Home()
         {
             return Ok(await _bidListService.GetAllAsync());
         }
         [HttpGet("/bidList/{id}")]
-        public async Task<ActionResult<BidList>> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             BidList? bidList = await _bidListService.GetByIdAsync(id);
             return bidList == null ? NotFound() : Ok(bidList);
         }
         [HttpPost("/bidList/add")]
-        public async Task<ActionResult<BidList>> AddCurvePoint([FromBody] BidList bidList)
+        public async Task<IActionResult> Add([FromBody] BidList bidList)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            BidList createdBidList = await _bidListService.AddAsync(bidList);
-            return CreatedAtAction(nameof(GetById), new { id = bidList.BidListId }, createdBidList);
+            BidList? createdBidList = await _bidListService.AddAsync(bidList);
+            return createdBidList != null ? CreatedAtAction(nameof(GetById), new { id = bidList.BidListId }, createdBidList) : StatusCode(500);
         }
         [HttpPost("/bidList/update/{id}")]
-        public async Task<ActionResult<BidList>> UpdateCurvePoint(int id, [FromBody] BidList bidList)
+        public async Task<IActionResult> Update(int id, [FromBody] BidList bidList)
         {
-            if (!await _bidListService.ExistAsync(id))
-            {
-                return NotFound();
-            }
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -56,7 +52,7 @@ namespace Dot.Net.WebApi.Controllers
             return updatedBidList == null ? NotFound() : Ok(updatedBidList);
         }
         [HttpDelete("/bidList/{id}")]
-        public async Task<ActionResult> DeleteBid(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (!ModelState.IsValid)
             {
