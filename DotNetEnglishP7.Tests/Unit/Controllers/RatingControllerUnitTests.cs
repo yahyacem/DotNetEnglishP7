@@ -1,7 +1,10 @@
 ﻿using Dot.Net.WebApi.Controllers;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Identity;
 using DotNetEnglishP7.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -22,18 +25,16 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
             // Arrange
             List<Rating> seedData = new List<Rating>()
             {
-                new Rating() { OrderNumber = 5 },
-                new Rating() { OrderNumber = 10 },
-                new Rating() { OrderNumber = 3 }
+                new Rating() { Id = 1, OrderNumber = 5 },
+                new Rating() { Id = 2, OrderNumber = 10 },
+                new Rating() { Id = 2, OrderNumber = 3 }
             };
-            for (int i = 1; i <= seedData.Count; i++)
-            {
-                seedData[i - 1].SetId(i);
-            }
-
             var ratingService = new Mock<IRatingService>();
             ratingService.Setup(x => x.GetAllAsync()).ReturnsAsync(seedData);
-            var controller = new RatingController(ratingService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RatingController>>();
+            var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService.Object);
 
             // Act
             var actionResult = await controller.Home();
@@ -53,12 +54,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToReturn = 1;
-            Rating seedData = new Rating() { OrderNumber = 5 };
-            seedData.SetId(idToReturn);
+            Rating seedData = new Rating() { Id = idToReturn, OrderNumber = 5 };
 
             var ratingService = new Mock<IRatingService>();
             ratingService.Setup(x => x.GetByIdAsync(idToReturn)).ReturnsAsync(seedData);
-            var controller = new RatingController(ratingService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RatingController>>();
+            var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService.Object);
 
             // Act
             var actionResult = await controller.GetById(idToReturn);
@@ -78,7 +81,10 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             var ratingService = new Mock<IRatingService>();
-            var controller = new RatingController(ratingService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RatingController>>();
+            var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService.Object);
 
             // Act
             var actionResult = await controller.GetById(1);
@@ -96,12 +102,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToCreate = 1;
-            Rating seedData = new Rating() { OrderNumber = 5 };
-            seedData.SetId(idToCreate);
+            Rating seedData = new Rating() { Id = idToCreate, OrderNumber = 5 };
 
             var ratingService = new Mock<IRatingService>();
             ratingService.Setup(x => x.AddAsync(seedData)).ReturnsAsync(seedData);
-            var controller = new RatingController(ratingService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RatingController>>();
+            var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService.Object);
 
             // Act
             var actionResult = await controller.Add(seedData);
@@ -121,14 +129,16 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToUpdate = 1;
-            Rating seedData = new Rating() { OrderNumber = 5 };
-            seedData.SetId(idToUpdate);
+            Rating seedData = new Rating() { Id = idToUpdate, OrderNumber = 5 };
 
 
             var ratingService = new Mock<IRatingService>();
             ratingService.Setup(x => x.UpdateAsync(seedData)).ReturnsAsync(seedData);
             ratingService.Setup(x => x.ExistAsync(idToUpdate)).ReturnsAsync(true);
-            var controller = new RatingController(ratingService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RatingController>>();
+            var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService.Object);
 
             // Act
             var actionResult = await controller.Update(idToUpdate, seedData);
@@ -148,12 +158,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToDelete = 1;
-            Rating seedData = new Rating() { OrderNumber = 5 };
-            seedData.SetId(idToDelete);
+            Rating seedData = new Rating() { Id = idToDelete, OrderNumber = 5 };
 
             var ratingService = new Mock<IRatingService>();
             ratingService.Setup(x => x.DeleteAsync(idToDelete)).ReturnsAsync(seedData);
-            var controller = new RatingController(ratingService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RatingController>>();
+            var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService.Object);
 
             // Act
             var actionResult = await controller.Delete(idToDelete);

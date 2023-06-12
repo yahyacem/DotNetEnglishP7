@@ -7,11 +7,7 @@ namespace Dot.Net.WebApi.Domain
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; private set; }
-        public void SetId(int id)
-        {
-            Id = id;
-        }
+        public int? Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Json { get; set; }

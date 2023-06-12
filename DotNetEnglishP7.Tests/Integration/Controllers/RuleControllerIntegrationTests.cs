@@ -1,9 +1,13 @@
 ﻿using Dot.Net.WebApi.Controllers;
 using Dot.Net.WebApi.Data;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Identity;
 using DotNetEnglishP7.Repositories;
 using DotNetEnglishP7.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +17,7 @@ using System.Threading.Tasks;
 namespace DotNetEnglishP7.Tests.Integration.Controllers
 {
     [Collection("Sequential")]
-    public class RuleControllerIntegrationTests : IntegrationTests
+    public class RuleServiceIntegrationTests : IntegrationTests
     {
         /// <summary>
         /// Test API call of type GET on endpoint /Rule. It should return the list of all Rule.
@@ -26,21 +30,20 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Arrange
                 List<Rule> seedData = new List<Rule>()
                 {
-                    new Rule() { Name = "Name Test 1", Description = "Description Test 1" },
-                    new Rule() { Name = "Name Test 2", Description = "Description Test 2" },
-                    new Rule() { Name = "Name Test 3", Description = "Description Test 3" }
+                    new Rule() { Id = 1, Name = "Name Test 1", Description = "Description Test 1" },
+                    new Rule() { Id = 2, Name = "Name Test 2", Description = "Description Test 2" },
+                    new Rule() { Id = 3, Name = "Name Test 3", Description = "Description Test 3" }
                 };
-                for (int i = 1; i <= seedData.Count; i++)
-                {
-                    seedData[i - 1].SetId(i);
-                }
                 context.Rules.AddRange(seedData);
                 context.SaveChanges();
 
                 // Instantiate repository, service and controller
                 var ruleRepositoy = new RuleRepository(context);
                 IRuleService ruleService = new RuleService(ruleRepositoy);
-                var controller = new RuleController(ruleService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RuleController>>();
+                var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService);
 
                 // Act
                 // Make the call and capture result
@@ -75,7 +78,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var ruleRepositoy = new RuleRepository(context);
                 IRuleService ruleService = new RuleService(ruleRepositoy);
-                var controller = new RuleController(ruleService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RuleController>>();
+                var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService);
 
                 // Act
                 // Make the call and capture result
@@ -107,7 +113,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var ruleRepositoy = new RuleRepository(context);
                 IRuleService ruleService = new RuleService(ruleRepositoy);
-                var controller = new RuleController(ruleService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RuleController>>();
+                var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService);
 
                 // Act
                 // Make the call and capture result
@@ -138,7 +147,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var ruleRepositoy = new RuleRepository(context);
                 IRuleService ruleService = new RuleService(ruleRepositoy);
-                var controller = new RuleController(ruleService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RuleController>>();
+                var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService);
 
                 // Act
                 // Make the call and capture result
@@ -178,7 +190,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var ruleRepositoy = new RuleRepository(context);
                 IRuleService ruleService = new RuleService(ruleRepositoy);
-                var controller = new RuleController(ruleService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RuleController>>();
+                var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService);
 
                 // Act
                 // Make the call and capture result
@@ -210,21 +225,20 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Insert seed data
                 List<Rule> seedData = new List<Rule>()
                 {
-                    new Rule() { Name = "Name Test 1", Description = "Description Test 1" },
-                    new Rule() { Name = "Name Test 2", Description = "Description Test 2" },
-                    new Rule() { Name = "Name Test 3", Description = "Description Test 3" }
+                    new Rule() { Id = 1, Name = "Name Test 1", Description = "Description Test 1" },
+                    new Rule() { Id = 2, Name = "Name Test 2", Description = "Description Test 2" },
+                    new Rule() { Id = 3, Name = "Name Test 3", Description = "Description Test 3" }
                 };
-                for (int i = 1; i <= seedData.Count; i++)
-                {
-                    seedData[i - 1].SetId(i);
-                }
                 context.Rules.AddRange(seedData);
                 context.SaveChanges();
 
                 // Instantiate repository, service and controller
                 var ruleRepositoy = new RuleRepository(context);
                 IRuleService ruleService = new RuleService(ruleRepositoy);
-                var controller = new RuleController(ruleService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RuleController>>();
+                var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService);
 
                 // Act
                 // Make the call and capture result

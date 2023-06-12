@@ -7,11 +7,7 @@ namespace Dot.Net.WebApi.Domain
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int TradeId { get; private set; }
-        public void SetTradeId(int id)
-        {
-            TradeId = id;
-        }
+        public int? Id { get; set; }
         public string? Account { get; set; }
         public string? Type { get; set; }
         public double? BuyQuantity { get; set; }

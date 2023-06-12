@@ -1,11 +1,14 @@
-﻿using Dot.Net.WebApi.Data;
+﻿using AutoMapper;
+using Dot.Net.WebApi.Data;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Mappers;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetEnglishP7.Repositories
 {
     public class RatingRepository : IRatingRepository
     {
+        private static IMapper _mapper = MappingProfile.InitializeAutoMapper().CreateMapper();
         private LocalDbContext DbContext;
         public RatingRepository(LocalDbContext _dbContext)
         {
@@ -37,22 +40,21 @@ namespace DotNetEnglishP7.Repositories
         {
             return await DbContext.Ratings.ToListAsync();
         }
-        public async Task<Rating?> GetByIdAsync(int id)
+        public async Task<Rating?> GetByIdAsync(int? id)
         {
             return await DbContext.Ratings.FirstOrDefaultAsync(x => x.Id == id);
         }
         public async Task<Rating?> UpdateAsync(Rating rating)
         {
-            if (rating != null)
-            {
-                Rating? existing = DbContext.Ratings.Local.SingleOrDefault(x => x.Id == rating.Id);
-                if (existing != null)
-                    DbContext.Entry(existing).State = EntityState.Detached;
+            Rating? ratingToUpdate = await GetByIdAsync(rating.Id);
+            if (ratingToUpdate == null)
+                return null;
 
-                DbContext.Ratings.Update(rating);
-                await DbContext.SaveChangesAsync();
-            }
-            return rating;
+            _mapper.Map(rating, ratingToUpdate);
+            DbContext.Ratings.Update(ratingToUpdate);
+            await DbContext.SaveChangesAsync();
+
+            return ratingToUpdate;
         }
     }
 }

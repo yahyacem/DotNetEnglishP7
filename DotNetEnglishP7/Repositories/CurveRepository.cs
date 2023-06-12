@@ -1,11 +1,14 @@
-﻿using Dot.Net.WebApi.Data;
+﻿using AutoMapper;
+using Dot.Net.WebApi.Data;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Mappers;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetEnglishP7.Repositories
 {
     public class CurveRepository : ICurveRepository
     {
+        private static IMapper _mapper = MappingProfile.InitializeAutoMapper().CreateMapper();
         private LocalDbContext DbContext;
         public CurveRepository(LocalDbContext _dbContext)
         {
@@ -37,22 +40,21 @@ namespace DotNetEnglishP7.Repositories
         {
             return await DbContext.CurvePoints.ToListAsync();
         }
-        public async Task<CurvePoint?> GetByIdAsync(int id)
+        public async Task<CurvePoint?> GetByIdAsync(int? id)
         {
             return await DbContext.CurvePoints.FirstOrDefaultAsync(x => x.Id == id);
         }
         public async Task<CurvePoint?> UpdateAsync(CurvePoint curvePoint)
         {
-            if (curvePoint != null)
-            {
-                CurvePoint? existing = DbContext.CurvePoints.Local.SingleOrDefault(x => x.Id == curvePoint.Id);
-                if (existing != null)
-                    DbContext.Entry(existing).State = EntityState.Detached;
+            CurvePoint? curvePointToUpdate = await GetByIdAsync(curvePoint.Id);
+            if (curvePointToUpdate == null)
+                return null;
 
-                DbContext.CurvePoints.Update(curvePoint);
-                await DbContext.SaveChangesAsync();
-            }
-            return curvePoint;
+            _mapper.Map(curvePoint, curvePointToUpdate);
+            DbContext.CurvePoints.Update(curvePointToUpdate);
+            await DbContext.SaveChangesAsync();
+
+            return curvePointToUpdate;
         }
     }
 }

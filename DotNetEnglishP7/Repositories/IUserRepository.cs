@@ -1,4 +1,7 @@
 ﻿using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Domain;
+using DotNetEnglishP7.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace DotNetEnglishP7.Repositories
 {
@@ -6,9 +9,9 @@ namespace DotNetEnglishP7.Repositories
     {
         public Task<User?> GetByIdAsync(int id);
         public Task<List<User>> GetAllAsync();
-        public Task<User?> AddAsync(User user);
-        public Task<User?> UpdateAsync(User user);
-        public Task<User?> DeleteAsync(User user);
+        public Task<IdentityResult?> AddAsync(RegisterUser user);
+        public Task<bool> UpdateAsync(RegisterUser user);
+        public Task<bool> DeleteAsync(int id);
         public Task<bool> ExistAsync(int id);
     }
 }

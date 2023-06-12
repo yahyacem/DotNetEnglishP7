@@ -19,14 +19,10 @@ namespace DotNetEnglishP7.Tests.Unit.Services
             // Arrange
             List<CurvePoint> seedData = new List<CurvePoint>()
             {
-                new CurvePoint() { CurvePointId = 5, Term = 4.34 },
-                new CurvePoint() { CurvePointId = 10, Term = 5.321 },
-                new CurvePoint() { CurvePointId = 7, Term = 9.00 }
+                new CurvePoint() { Id = 1, CurvePointId = 5, Term = 4.34 },
+                new CurvePoint() { Id = 2, CurvePointId = 10, Term = 5.321 },
+                new CurvePoint() { Id = 3, CurvePointId = 7, Term = 9.00 }
             };
-            for (int i = 1; i <= seedData.Count; i++)
-            {
-                seedData[i - 1].SetId(i);
-            }
 
             var curveRepository = new Mock<ICurveRepository>();
             curveRepository.Setup(x => x.GetAllAsync()).ReturnsAsync(seedData);
@@ -44,15 +40,15 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         public async void GetByIdAsync_PassInt_ShouldReturnSingleCurve()
         {
             // Arrange
-            CurvePoint seedData = new CurvePoint() { CurvePointId = 5, Term = 4.34 };
-            seedData.SetId(1);
+            int idToGet = 1;
+            CurvePoint seedData = new CurvePoint() { Id = idToGet, CurvePointId = 5, Term = 4.34 };
 
             var curveRepository = new Mock<ICurveRepository>();
-            curveRepository.Setup(x => x.GetByIdAsync(1)).ReturnsAsync(seedData);
+            curveRepository.Setup(x => x.GetByIdAsync(idToGet)).ReturnsAsync(seedData);
 
             // Act
             ICurveService curveService = new CurveService(curveRepository.Object);
-            var curveResult = await curveService.GetByIdAsync(1);
+            var curveResult = await curveService.GetByIdAsync(idToGet);
 
             // Assert
             Assert.NotNull(curveResult);
@@ -76,8 +72,7 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         public async void AddAsync_PassCurve_ShouldReturnSameCurve()
         {
             // Arrange
-            CurvePoint seedData = new CurvePoint() { CurvePointId = 5, Term = 4.34 };
-            seedData.SetId(1);
+            CurvePoint seedData = new CurvePoint() { Id = 1, CurvePointId = 5, Term = 4.34 };
 
             var curveRepository = new Mock<ICurveRepository>();
             curveRepository.Setup(x => x.AddAsync(seedData)).ReturnsAsync(seedData);
@@ -97,8 +92,7 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         {
             // Arrange
             int idToUpdate = 1;
-            CurvePoint seedData = new CurvePoint() { CurvePointId = 5, Term = 4.34 };
-            seedData.SetId(idToUpdate);
+            CurvePoint seedData = new CurvePoint() { Id = idToUpdate, CurvePointId = 5, Term = 4.34 };
 
             var curveRepository = new Mock<ICurveRepository>();
             curveRepository.Setup(x => x.GetByIdAsync(idToUpdate)).ReturnsAsync(seedData);
@@ -118,8 +112,7 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         public async void DeleteAsync_PassCurve_ShouldReturnSameCurve()
         {
             // Arrange
-            CurvePoint seedData = new CurvePoint() { CurvePointId = 5, Term = 4.34 };
-            seedData.SetId(1);
+            CurvePoint seedData = new CurvePoint() { Id = 1, CurvePointId = 5, Term = 4.34 };
 
             var curveRepository = new Mock<ICurveRepository>();
             curveRepository.Setup(x => x.GetByIdAsync(1)).ReturnsAsync(seedData);

@@ -1,9 +1,12 @@
 ﻿using Dot.Net.WebApi.Controllers;
 using Dot.Net.WebApi.Data;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Identity;
 using DotNetEnglishP7.Repositories;
 using DotNetEnglishP7.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -14,7 +17,7 @@ using System.Threading.Tasks;
 namespace DotNetEnglishP7.Tests.Integration.Controllers
 {
     [Collection("Sequential")]
-    public class BidControllerIntegrationTests : IntegrationTests
+    public class BidServiceIntegrationTests : IntegrationTests
     {
         /// <summary>
         /// Test API call of type GET on endpoint /BidList. It should return the list of all BidList.
@@ -27,21 +30,20 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Arrange
                 List<BidList> seedData = new List<BidList>()
                 {
-                    new BidList() { Account = "Account Test 1", Type = "Type Test 1" },
-                    new BidList() { Account = "Account Test 2", Type = "Type Test 2" },
-                    new BidList() { Account = "Account Test 3", Type = "Type Test 3" }
+                    new BidList() { Id = 1, Account = "Account Test 1", Type = "Type Test 1" },
+                    new BidList() { Id = 2, Account = "Account Test 2", Type = "Type Test 2" },
+                    new BidList() { Id = 3, Account = "Account Test 3", Type = "Type Test 3" }
                 };
-                for (int i = 1; i <= seedData.Count; i++)
-                {
-                    seedData[i - 1].SetBidListId(i);
-                }
                 context.BidLists.AddRange(seedData);
                 context.SaveChanges();
 
                 // Instantiate repository, service and controller
                 var bidListRepositoy = new BidListRepository(context);
                 IBidListService bidListService = new BidListService(bidListRepositoy);
-                var controller = new BidListController(bidListService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<BidListController>>();
+                var controller = new BidListController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, bidListService);
 
                 // Act
                 // Make the call and capture result
@@ -55,8 +57,8 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 Assert.Equal(200, okResult.StatusCode);
                 // Check response data
                 Assert.Equal(seedData.Count, ((List<BidList>)okResult.Value).Count);
-                Assert.Equal(seedData[0].Account, ((List<BidList>)okResult.Value).First(x => x.BidListId == 1).Account);
-                Assert.Equal(seedData[0].Type, ((List<BidList>)okResult.Value).First(x => x.BidListId == 1).Type);
+                Assert.Equal(seedData[0].Account, ((List<BidList>)okResult.Value).First(x => x.Id == 1).Account);
+                Assert.Equal(seedData[0].Type, ((List<BidList>)okResult.Value).First(x => x.Id == 1).Type);
             }
         }
         /// <summary>
@@ -76,7 +78,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var bidListRepositoy = new BidListRepository(context);
                 IBidListService bidListService = new BidListService(bidListRepositoy);
-                var controller = new BidListController(bidListService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<BidListController>>();
+                var controller = new BidListController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, bidListService);
 
                 // Act
                 // Make the call and capture result
@@ -89,7 +94,7 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 Assert.NotNull(okResult.Value);
                 Assert.Equal(200, okResult.StatusCode);
                 // Check response data
-                Assert.Equal(seedData.BidListId, ((BidList)okResult.Value).BidListId);
+                Assert.Equal(seedData.Id, ((BidList)okResult.Value).Id);
                 Assert.Equal(seedData.Account, ((BidList)okResult.Value).Account);
                 Assert.Equal(seedData.Type, ((BidList)okResult.Value).Type);
             }
@@ -108,7 +113,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var bidListRepositoy = new BidListRepository(context);
                 IBidListService bidListService = new BidListService(bidListRepositoy);
-                var controller = new BidListController(bidListService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<BidListController>>();
+                var controller = new BidListController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, bidListService);
 
                 // Act
                 // Make the call and capture result
@@ -139,7 +147,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var bidListRepositoy = new BidListRepository(context);
                 IBidListService bidListService = new BidListService(bidListRepositoy);
-                var controller = new BidListController(bidListService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<BidListController>>();
+                var controller = new BidListController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, bidListService);
 
                 // Act
                 // Make the call and capture result
@@ -151,7 +162,7 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 Assert.NotNull(okResult.Value);
                 Assert.Equal(201, okResult.StatusCode);
                 // Check response data
-                Assert.Equal(seedData.BidListId, ((BidList)okResult.Value).BidListId);
+                Assert.Equal(seedData.Id, ((BidList)okResult.Value).Id);
                 Assert.Equal(seedData.Account, ((BidList)okResult.Value).Account);
                 Assert.Equal(seedData.Type, ((BidList)okResult.Value).Type);
                 // Check data in database
@@ -163,14 +174,14 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
         /// Test API call of type POST on endpoint /BidList/Update. It should return the updated BidList.
         /// </summary>
         [Fact]
-        public async void POST_Update_PassBidList_ShouldReturnSameBidList()
+        public async void PUT_Update_PassBidList_ShouldReturnSameBidList()
         {
             using (var context = new LocalDbContext(GetOptions()))
             {
                 // Arrange
                 int idToUpdate = 1;
                 // Insert seed data
-                BidList seedData = new BidList() { Account = "Account Test 1", Type = "Type Test 1" };
+                BidList seedData = new BidList() { Id = idToUpdate, Account = "Account Test 1", Type = "Type Test 1" };
                 context.BidLists.Add(seedData);
                 context.SaveChanges();
                 // Prepare new data to update
@@ -179,7 +190,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var bidListRepositoy = new BidListRepository(context);
                 IBidListService bidListService = new BidListService(bidListRepositoy);
-                var controller = new BidListController(bidListService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<BidListController>>();
+                var controller = new BidListController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, bidListService);
 
                 // Act
                 // Make the call and capture result
@@ -191,11 +205,13 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 Assert.NotNull(okResult.Value);
                 Assert.Equal(200, okResult.StatusCode);
                 // Check response data
-                Assert.Equal(updatedData.BidListId, ((BidList)okResult.Value).BidListId);
+                Assert.Equal(updatedData.Id, ((BidList)okResult.Value).Id);
                 Assert.Equal(updatedData.Account, ((BidList)okResult.Value).Account);
                 Assert.Equal(updatedData.Type, ((BidList)okResult.Value).Type);
                 // Check data in database
-                Assert.NotNull(await bidListService.GetByIdAsync(idToUpdate));
+                var bidListUpdated = await bidListService.GetByIdAsync(idToUpdate);
+                Assert.NotNull(bidListUpdated);
+                Assert.Equal(updatedData.Account, bidListUpdated.Account);
             }
         }
         /// <summary>
@@ -211,21 +227,27 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Insert seed data
                 List<BidList> seedData = new List<BidList>()
                 {
-                    new BidList() { Account = "Account Test 1", Type = "Type Test 1" },
-                    new BidList() { Account = "Account Test 2", Type = "Type Test 2" },
-                    new BidList() { Account = "Account Test 3", Type = "Type Test 3" }
+                    new BidList() { Id = 1, Account = "Account Test 1", Type = "Type Test 1" },
+                    new BidList() { Id = 2, Account = "Account Test 2", Type = "Type Test 2" },
+                    new BidList() { Id = 3, Account = "Account Test 3", Type = "Type Test 3" }
                 };
-                for (int i = 1; i <= seedData.Count; i++)
-                {
-                    seedData[i - 1].SetBidListId(i);
-                }
                 context.BidLists.AddRange(seedData);
                 context.SaveChanges();
 
                 // Instantiate repository, service and controller
                 var bidListRepositoy = new BidListRepository(context);
                 IBidListService bidListService = new BidListService(bidListRepositoy);
-                var controller = new BidListController(bidListService);
+                var logger = new Mock<ILogger<BidListController>>();
+                logger.Setup(x => x.Log(LogLevel.Information, It.IsAny<string>(), It.IsAny<string>())).Verifiable();
+                //logger.Verify(logger => logger.Log(
+                //    It.Is<LogLevel>(logLevel => logLevel == LogLevel.Information),
+                //    It.Is<EventId>(eventId => eventId.Id == 0),
+                //    It.Is<It.IsAnyType>((@object, @type) => @object.ToString() == "myMessage" && @type.Name == "FormattedLogValues"),
+                //    It.IsAny<Exception>(),
+                //    It.IsAny<Func<It.IsAnyType, Exception, string>>()),
+                //Times.Once);
+                //logger.Setup(x => x.LogInformation(It.IsAny<string>())).Verifiable();
+                var controller = new BidListController(new FakeSignInManager(true), new FakeUserManager(), logger.Object, bidListService);
 
                 // Act
                 // Make the call and capture result
@@ -238,9 +260,9 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 Assert.NotNull(okResult.Value);
                 Assert.Equal(200, okResult.StatusCode);
                 // Check response data
-                Assert.Equal(seedData.First(x => x.BidListId == idToDelete).BidListId, ((BidList)okResult.Value).BidListId);
-                Assert.Equal(seedData.First(x => x.BidListId == idToDelete).Account, ((BidList)okResult.Value).Account);
-                Assert.Equal(seedData.First(x => x.BidListId == idToDelete).Type, ((BidList)okResult.Value).Type);
+                Assert.Equal(seedData.First(x => x.Id == idToDelete).Id, ((BidList)okResult.Value).Id);
+                Assert.Equal(seedData.First(x => x.Id == idToDelete).Account, ((BidList)okResult.Value).Account);
+                Assert.Equal(seedData.First(x => x.Id == idToDelete).Type, ((BidList)okResult.Value).Type);
                 // Check data in database
                 Assert.Null(await bidListService.GetByIdAsync(idToDelete));
                 Assert.Equal(2, (await bidListService.GetAllAsync()).Count);

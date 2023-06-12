@@ -33,13 +33,11 @@ namespace DotNetEnglishP7.Services
         }
         public async Task<CurvePoint?> UpdateAsync(CurvePoint curvePoint)
         {
-            CurvePoint? curvePointToUpdate = await _curveRepository.GetByIdAsync(curvePoint.Id);
-            if (curvePointToUpdate != null)
+            if (curvePoint != null)
             {
-                curvePointToUpdate = curvePoint;
-                await _curveRepository.UpdateAsync(curvePointToUpdate);
+                await _curveRepository.UpdateAsync(curvePoint);
             }
-            return curvePointToUpdate;
+            return curvePoint;
         }
         public async Task<bool> ExistAsync(int id)
         {

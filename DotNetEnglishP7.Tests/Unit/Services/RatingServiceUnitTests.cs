@@ -17,25 +17,12 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         public async void GetAllAsync_ShouldReturnList()
         {
             // Arrange
-            List<Rating> seedData = new List<Rating>()
-            {
-                new Rating()
-                {
-                    OrderNumber = 5
-                },
-                new Rating()
-                {
-                    OrderNumber = 10
-                },
-                new Rating()
-                {
-                    OrderNumber = 7
-                }
+            List<Rating> seedData = new List<Rating>() 
+            { 
+                new Rating() { Id = 1, OrderNumber = 5 },
+                new Rating() { Id = 2, OrderNumber = 10 },
+                new Rating() { Id = 3, OrderNumber = 7 }
             };
-            for (int i = 1; i <= seedData.Count; i++)
-            {
-                seedData[i - 1].SetId(i);
-            }
 
             var ratingRepository = new Mock<IRatingRepository>();
             ratingRepository.Setup(x => x.GetAllAsync()).ReturnsAsync(seedData);
@@ -53,18 +40,15 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         public async void GetByIdAsync_PassInt_ShouldReturnSingleRating()
         {
             // Arrange
-            Rating seedData = new Rating()
-            {
-                OrderNumber = 5
-            };
-            seedData.SetId(1);
+            int idToGet = 1;
+            Rating seedData = new Rating() { Id = idToGet, OrderNumber = 5 };
 
             var ratingRepository = new Mock<IRatingRepository>();
-            ratingRepository.Setup(x => x.GetByIdAsync(1)).ReturnsAsync(seedData);
+            ratingRepository.Setup(x => x.GetByIdAsync(idToGet)).ReturnsAsync(seedData);
 
             // Act
             IRatingService ratingService = new RatingService(ratingRepository.Object);
-            var ratingResult = await ratingService.GetByIdAsync(1);
+            var ratingResult = await ratingService.GetByIdAsync(idToGet);
 
             // Assert
             Assert.NotNull(ratingResult);
@@ -87,11 +71,7 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         public async void AddAsync_PassRating_ShouldReturnSameRating()
         {
             // Arrange
-            Rating seedData = new Rating()
-            {
-                OrderNumber = 5
-            };
-            seedData.SetId(1);
+            Rating seedData = new Rating() { Id = 1, OrderNumber = 5 };
 
             var ratingRepository = new Mock<IRatingRepository>();
             ratingRepository.Setup(x => x.AddAsync(seedData)).ReturnsAsync(seedData);
@@ -110,8 +90,7 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         {
             // Arrange
             int idToUpdate = 1;
-            Rating seedData = new Rating() { OrderNumber = 5 };
-            seedData.SetId(idToUpdate);
+            Rating seedData = new Rating() { Id = idToUpdate, OrderNumber = 5 };
 
             var ratingRepository = new Mock<IRatingRepository>();
             ratingRepository.Setup(x => x.GetByIdAsync(idToUpdate)).ReturnsAsync(seedData);
@@ -130,19 +109,16 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         public async void DeleteAsync_PassRating_ShouldReturnSameRating()
         {
             // Arrange
-            Rating seedData = new Rating()
-            {
-                OrderNumber = 5
-            };
-            seedData.SetId(1);
+            int idToGet = 1;
+            Rating seedData = new Rating() { Id = idToGet, OrderNumber = 5 };
 
             var ratingRepository = new Mock<IRatingRepository>();
-            ratingRepository.Setup(x => x.GetByIdAsync(1)).ReturnsAsync(seedData);
+            ratingRepository.Setup(x => x.GetByIdAsync(idToGet)).ReturnsAsync(seedData);
             ratingRepository.Setup(x => x.DeleteAsync(seedData)).ReturnsAsync(seedData);
 
             // Act
             IRatingService ratingService = new RatingService(ratingRepository.Object);
-            var ratingResult = await ratingService.DeleteAsync(1);
+            var ratingResult = await ratingService.DeleteAsync(idToGet);
 
             // Assert
             Assert.NotNull(ratingResult);

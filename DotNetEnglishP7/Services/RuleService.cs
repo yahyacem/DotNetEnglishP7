@@ -33,13 +33,11 @@ namespace DotNetEnglishP7.Services
         }
         public async Task<Rule?> UpdateAsync(Rule rule)
         {
-            Rule? ruleToUpdate = await _ruleRepository.GetByIdAsync(rule.Id);
-            if (ruleToUpdate != null)
+            if (rule != null)
             {
-                ruleToUpdate = rule;
-                await _ruleRepository.UpdateAsync(ruleToUpdate);
+                await _ruleRepository.UpdateAsync(rule);
             }
-            return ruleToUpdate;
+            return rule;
         }
         public async Task<bool> ExistAsync(int id)
         {

@@ -8,11 +8,7 @@ namespace Dot.Net.WebApi.Domain
         // TODO: Map columns in data table BIDLIST with corresponding fields
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int BidListId { get; private set; }
-        public void SetBidListId(int id)
-        {
-            BidListId = id;
-        }
+        public int? Id { get; set; }
         [Required]
         public required string Account { get; set; }
         [Required]

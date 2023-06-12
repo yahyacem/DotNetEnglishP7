@@ -3,53 +3,93 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Controllers;
+using DotNetEnglishP7.Identity;
 using DotNetEnglishP7.Repositories;
 using DotNetEnglishP7.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 using Microsoft.Extensions.Logging;
  
 namespace Dot.Net.WebApi.Controllers
 {
     [Route("[controller]")]
-    public class CurveController : Controller
+    public class CurveController : BaseController
     {
         private ICurveService _curveService;
-        public CurveController(ICurveService curveService)
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly ILogger _logger;
+        public CurveController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, ILogger<CurveController> logger, ICurveService curveService)
+            : base(signInManager, userManager, logger)
         {
+            _signInManager = signInManager;
+            _userManager = userManager;
+            _logger = logger;
             _curveService = curveService;
         }
+        [Authorize]
         [HttpGet("/curvePoint/list")]
         public async Task<IActionResult> Home()
         {
+            AddLog("List of Curves retrieved successfully.");
             return Ok(await _curveService.GetAllAsync());
         }
+        [Authorize]
         [HttpGet("/curvePoint/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             CurvePoint? curvePoint = await _curveService.GetByIdAsync(id);
-            return curvePoint == null ? NotFound() : Ok(curvePoint);
+            if (curvePoint == null)
+            {
+                return NotFound();
+            }
+
+            AddLog($"BidList {id} returned successfully.");
+            return Ok(curvePoint);
         }
+        [Authorize]
         [HttpPost("/curvePoint/add")]
-        public async Task<IActionResult> Add([FromBody]CurvePoint curvePoint)
+        public async Task<IActionResult> Add([FromBody] CurvePoint curvePoint)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            curvePoint.Id = null;
             CurvePoint? createdCurvePoint = await _curveService.AddAsync(curvePoint);
-            return createdCurvePoint != null ? CreatedAtAction(nameof(GetById), new { id = curvePoint.Id }, createdCurvePoint) : StatusCode(500);
+
+            if (createdCurvePoint == null)
+            {
+                return StatusCode(500);
+            }
+
+            AddLog($"Curve {createdCurvePoint.Id} updated successfully.");
+            return CreatedAtAction(nameof(GetById), new { id = createdCurvePoint.Id }, createdCurvePoint);
         }
-        [HttpPost("/curvepoint/update/{id}")]
+        [Authorize]
+        [HttpPut("/curvepoint/update/{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] CurvePoint curvePoint)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            curvePoint.SetId(id);
+
+            curvePoint.Id = id;
             CurvePoint? updatedCurvePoint = await _curveService.UpdateAsync(curvePoint);
-            return updatedCurvePoint == null ? NotFound() : Ok(updatedCurvePoint);
+            
+            if (updatedCurvePoint == null)
+            {
+                return NotFound();
+            }
+
+            AddLog($"Curve {id} updated successfully.");
+            return Ok(updatedCurvePoint);
         }
+        [Authorize]
         [HttpDelete("/curvepoint/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -58,7 +98,14 @@ namespace Dot.Net.WebApi.Controllers
                 return BadRequest(ModelState);
             }
             CurvePoint? deletedCurvePoint = await _curveService.DeleteAsync(id);
-            return deletedCurvePoint == null ? NotFound() : Ok(deletedCurvePoint);
+            
+            if (deletedCurvePoint == null)
+            { 
+                return NotFound();
+            }
+
+            AddLog($"Curve {id} deleted successfully.");
+            return Ok(deletedCurvePoint);
         }
     }
 }

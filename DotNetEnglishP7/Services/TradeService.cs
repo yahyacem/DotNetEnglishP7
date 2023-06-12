@@ -33,13 +33,11 @@ namespace DotNetEnglishP7.Services
         }
         public async Task<Trade?> UpdateAsync(Trade trade)
         {
-            Trade? tradeToUpdate = await _tradeRepository.GetByIdAsync(trade.TradeId);
-            if (tradeToUpdate != null)
+            if (trade != null)
             {
-                tradeToUpdate = trade;
-                await _tradeRepository.UpdateAsync(tradeToUpdate);
+                await _tradeRepository.UpdateAsync(trade);
             }
-            return tradeToUpdate;
+            return trade;
         }
         public async Task<bool> ExistAsync(int id)
         {

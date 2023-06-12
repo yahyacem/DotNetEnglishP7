@@ -4,7 +4,7 @@ namespace DotNetEnglishP7.Repositories
 {
     public interface ICurveRepository
     {
-        public Task<CurvePoint?> GetByIdAsync(int id);
+        public Task<CurvePoint?> GetByIdAsync(int? id);
         public Task<List<CurvePoint>> GetAllAsync();
         public Task<CurvePoint?> AddAsync(CurvePoint curvePoint);
         public Task<CurvePoint?> UpdateAsync(CurvePoint curvePoint);

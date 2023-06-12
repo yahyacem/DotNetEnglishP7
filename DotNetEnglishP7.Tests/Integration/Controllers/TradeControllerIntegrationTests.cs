@@ -1,9 +1,13 @@
 ﻿using Dot.Net.WebApi.Controllers;
 using Dot.Net.WebApi.Data;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Identity;
 using DotNetEnglishP7.Repositories;
 using DotNetEnglishP7.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +17,7 @@ using System.Threading.Tasks;
 namespace DotNetEnglishP7.Tests.Integration.Controllers
 {
     [Collection("Sequential")]
-    public class TradeControllerIntegrationTests : IntegrationTests
+    public class TradeServiceIntegrationTests : IntegrationTests
     {
         /// <summary>
         /// Test API call of type GET on endpoint /Trade. It should return the list of all Trade.
@@ -26,21 +30,20 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Arrange
                 List<Trade> seedData = new List<Trade>()
                 {
-                    new Trade() { Account = "Account Test 1", Type = "Type Test 1" },
-                    new Trade() { Account = "Account Test 2", Type = "Type Test 2" },
-                    new Trade() { Account = "Account Test 3", Type = "Type Test 3" }
+                    new Trade() { Id = 1, Account = "Account Test 1", Type = "Type Test 1" },
+                    new Trade() { Id = 2, Account = "Account Test 2", Type = "Type Test 2" },
+                    new Trade() { Id = 3, Account = "Account Test 3", Type = "Type Test 3" }
                 };
-                for (int i = 1; i <= seedData.Count; i++)
-                {
-                    seedData[i - 1].SetTradeId(i);
-                }
                 context.Trades.AddRange(seedData);
                 context.SaveChanges();
 
                 // Instantiate repository, service and controller
                 var tradeRepositoy = new TradeRepository(context);
                 ITradeService tradeService = new TradeService(tradeRepositoy);
-                var controller = new TradeController(tradeService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<TradeController>>();
+                var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService);
 
                 // Act
                 // Make the call and capture result
@@ -54,8 +57,8 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 Assert.Equal(200, okResult.StatusCode);
                 // Check response data
                 Assert.Equal(seedData.Count, ((List<Trade>)okResult.Value).Count);
-                Assert.Equal(seedData[0].Account, ((List<Trade>)okResult.Value).First(x => x.TradeId == 1).Account);
-                Assert.Equal(seedData[0].Type, ((List<Trade>)okResult.Value).First(x => x.TradeId == 1).Type);
+                Assert.Equal(seedData[0].Account, ((List<Trade>)okResult.Value).First(x => x.Id == 1).Account);
+                Assert.Equal(seedData[0].Type, ((List<Trade>)okResult.Value).First(x => x.Id == 1).Type);
             }
         }
         /// <summary>
@@ -75,7 +78,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var tradeRepositoy = new TradeRepository(context);
                 ITradeService tradeService = new TradeService(tradeRepositoy);
-                var controller = new TradeController(tradeService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<TradeController>>();
+                var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService);
 
                 // Act
                 // Make the call and capture result
@@ -88,7 +94,7 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 Assert.NotNull(okResult.Value);
                 Assert.Equal(200, okResult.StatusCode);
                 // Check response data
-                Assert.Equal(seedData.TradeId, ((Trade)okResult.Value).TradeId);
+                Assert.Equal(seedData.Id, ((Trade)okResult.Value).Id);
                 Assert.Equal(seedData.Account, ((Trade)okResult.Value).Account);
                 Assert.Equal(seedData.Type, ((Trade)okResult.Value).Type);
             }
@@ -107,7 +113,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var tradeRepositoy = new TradeRepository(context);
                 ITradeService tradeService = new TradeService(tradeRepositoy);
-                var controller = new TradeController(tradeService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<TradeController>>();
+                var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService);
 
                 // Act
                 // Make the call and capture result
@@ -138,7 +147,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var tradeRepositoy = new TradeRepository(context);
                 ITradeService tradeService = new TradeService(tradeRepositoy);
-                var controller = new TradeController(tradeService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<TradeController>>();
+                var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService);
 
                 // Act
                 // Make the call and capture result
@@ -150,7 +162,7 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 Assert.NotNull(okResult.Value);
                 Assert.Equal(201, okResult.StatusCode);
                 // Check response data
-                Assert.Equal(seedData.TradeId, ((Trade)okResult.Value).TradeId);
+                Assert.Equal(seedData.Id, ((Trade)okResult.Value).Id);
                 Assert.Equal(seedData.Account, ((Trade)okResult.Value).Account);
                 Assert.Equal(seedData.Type, ((Trade)okResult.Value).Type);
                 // Check data in database
@@ -178,7 +190,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 var tradeRepositoy = new TradeRepository(context);
                 ITradeService tradeService = new TradeService(tradeRepositoy);
-                var controller = new TradeController(tradeService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<TradeController>>();
+                var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService);
 
                 // Act
                 // Make the call and capture result
@@ -190,7 +205,7 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 Assert.NotNull(okResult.Value);
                 Assert.Equal(200, okResult.StatusCode);
                 // Check response data
-                Assert.Equal(updatedData.TradeId, ((Trade)okResult.Value).TradeId);
+                Assert.Equal(updatedData.Id, ((Trade)okResult.Value).Id);
                 Assert.Equal(updatedData.Account, ((Trade)okResult.Value).Account);
                 Assert.Equal(updatedData.Type, ((Trade)okResult.Value).Type);
                 // Check data in database
@@ -210,21 +225,20 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Insert seed data
                 List<Trade> seedData = new List<Trade>()
                 {
-                    new Trade() { Account = "Account Test 1", Type = "Type Test 1" },
-                    new Trade() { Account = "Account Test 2", Type = "Type Test 2" },
-                    new Trade() { Account = "Account Test 3", Type = "Type Test 3" }
+                    new Trade() { Id = 1, Account = "Account Test 1", Type = "Type Test 1" },
+                    new Trade() { Id = 2, Account = "Account Test 2", Type = "Type Test 2" },
+                    new Trade() { Id = 3, Account = "Account Test 3", Type = "Type Test 3" }
                 };
-                for (int i = 1; i <= seedData.Count; i++)
-                {
-                    seedData[i - 1].SetTradeId(i);
-                }
                 context.Trades.AddRange(seedData);
                 context.SaveChanges();
 
                 // Instantiate repository, service and controller
                 var tradeRepositoy = new TradeRepository(context);
                 ITradeService tradeService = new TradeService(tradeRepositoy);
-                var controller = new TradeController(tradeService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<TradeController>>();
+                var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService);
 
                 // Act
                 // Make the call and capture result
@@ -237,9 +251,9 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 Assert.NotNull(okResult.Value);
                 Assert.Equal(200, okResult.StatusCode);
                 // Check response data
-                Assert.Equal(seedData.First(x => x.TradeId == idToDelete).TradeId, ((Trade)okResult.Value).TradeId);
-                Assert.Equal(seedData.First(x => x.TradeId == idToDelete).Account, ((Trade)okResult.Value).Account);
-                Assert.Equal(seedData.First(x => x.TradeId == idToDelete).Type, ((Trade)okResult.Value).Type);
+                Assert.Equal(seedData.First(x => x.Id == idToDelete).Id, ((Trade)okResult.Value).Id);
+                Assert.Equal(seedData.First(x => x.Id == idToDelete).Account, ((Trade)okResult.Value).Account);
+                Assert.Equal(seedData.First(x => x.Id == idToDelete).Type, ((Trade)okResult.Value).Type);
                 // Check data in database
                 Assert.Null(await tradeService.GetByIdAsync(idToDelete));
                 Assert.Equal(2, (await tradeService.GetAllAsync()).Count);

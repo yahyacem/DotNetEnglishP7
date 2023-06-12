@@ -1,11 +1,14 @@
-﻿using Dot.Net.WebApi.Data;
+﻿using AutoMapper;
+using Dot.Net.WebApi.Data;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Mappers;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetEnglishP7.Repositories
 {
     public class RuleRepository : IRuleRepository
     {
+        private static IMapper _mapper = MappingProfile.InitializeAutoMapper().CreateMapper();
         private LocalDbContext DbContext;
         public RuleRepository(LocalDbContext _dbContext)
         {
@@ -37,22 +40,21 @@ namespace DotNetEnglishP7.Repositories
         {
             return await DbContext.Rules.ToListAsync();
         }
-        public async Task<Rule?> GetByIdAsync(int id)
+        public async Task<Rule?> GetByIdAsync(int? id)
         {
             return await DbContext.Rules.FirstOrDefaultAsync(x => x.Id == id);
         }
         public async Task<Rule?> UpdateAsync(Rule rule)
         {
-            if (rule != null)
-            {
-                Rule? existing = DbContext.Rules.Local.SingleOrDefault(x => x.Id == rule.Id);
-                if (existing != null)
-                    DbContext.Entry(existing).State = EntityState.Detached;
+            Rule? ruleToUpdate = await GetByIdAsync(rule.Id);
+            if (ruleToUpdate == null)
+                return null;
 
-                DbContext.Rules.Update(rule);
-                await DbContext.SaveChangesAsync();
-            }
-            return rule;
+            _mapper.Map(rule, ruleToUpdate);
+            DbContext.Rules.Update(ruleToUpdate);
+            await DbContext.SaveChangesAsync();
+
+            return ruleToUpdate;
         }
     }
 }

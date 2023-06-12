@@ -1,11 +1,14 @@
-﻿using Dot.Net.WebApi.Data;
+﻿using AutoMapper;
+using Dot.Net.WebApi.Data;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Mappers;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetEnglishP7.Repositories
 {
     public class BidListRepository : IBidListRepository
     {
+        private static IMapper _mapper = MappingProfile.InitializeAutoMapper().CreateMapper();
         public LocalDbContext DbContext { get; }
         public BidListRepository(LocalDbContext dbContext)
         {
@@ -33,26 +36,25 @@ namespace DotNetEnglishP7.Repositories
         {
             return await DbContext.BidLists.ToListAsync();
         }
-        public async Task<BidList?> GetByIdAsync(int id)
+        public async Task<BidList?> GetByIdAsync(int? id)
         {
-            return await DbContext.BidLists.FirstOrDefaultAsync(x => x.BidListId == id);
+            return await DbContext.BidLists.FirstOrDefaultAsync(x => x.Id == id);
         }
         public async Task<BidList?> UpdateAsync(BidList bidList)
         {
-            if (bidList != null)
-            {
-                BidList? existing = DbContext.BidLists.Local.SingleOrDefault(x => x.BidListId == bidList.BidListId);
-                if (existing != null)
-                    DbContext.Entry(existing).State = EntityState.Detached;
+            BidList? bidListToUpdate = await GetByIdAsync(bidList.Id);
+            if (bidListToUpdate == null)
+                return null;
 
-                DbContext.BidLists.Update(bidList);
-                await DbContext.SaveChangesAsync();
-            }
-            return bidList;
+            _mapper.Map(bidList, bidListToUpdate);
+            DbContext.BidLists.Update(bidListToUpdate);
+            await DbContext.SaveChangesAsync();
+
+            return bidListToUpdate;
         }
         public async Task<bool> ExistAsync(int id)
         {
-            return await DbContext.BidLists.AnyAsync(x => x.BidListId == id);
+            return await DbContext.BidLists.AnyAsync(x => x.Id == id);
         }
     }
 }

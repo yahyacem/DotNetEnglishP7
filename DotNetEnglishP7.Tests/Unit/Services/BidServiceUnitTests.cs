@@ -19,14 +19,10 @@ namespace DotNetEnglishP7.Tests.Unit.Services
             // Arrange
             List<BidList> seedData = new List<BidList>()
             {
-                new BidList() { Account = "Account Test 1", Type = "Type Test 1" },
-                new BidList() { Account = "Account Test 2", Type = "Type Test 2" },
-                new BidList() { Account = "Account Test 3", Type = "Type Test 3" }
+                new BidList() { Id = 1, Account = "Account Test 1", Type = "Type Test 1" },
+                new BidList() { Id = 2, Account = "Account Test 2", Type = "Type Test 2" },
+                new BidList() { Id = 3, Account = "Account Test 3", Type = "Type Test 3" }
             };
-            for (int i = 1; i <= seedData.Count; i++)
-            {
-                seedData[i - 1].SetBidListId(i);
-            }
 
             var bidListRepositoy = new Mock<IBidListRepository>();
             bidListRepositoy.Setup(x => x.GetAllAsync()).ReturnsAsync(seedData);
@@ -38,25 +34,25 @@ namespace DotNetEnglishP7.Tests.Unit.Services
             // Assert
             Assert.NotNull(bidListResult);
             Assert.Equal(3, bidListResult.Count);
-            Assert.Equal(2, bidListResult[1].BidListId);
+            Assert.Equal(2, bidListResult[1].Id);
         }
         [Fact]
         public async void GetByIdAsync_PassInt_ShouldReturnsSingleBidList()
         {
             // Arrange
-            BidList seedData = new BidList() { Account = "Account Test 1", Type = "Type Test 1" };
-            seedData.SetBidListId(1);
+            int idToGet = 1;
+            BidList seedData = new BidList() { Id = idToGet, Account = "Account Test 1", Type = "Type Test 1" };
 
             var bidListRepositoy = new Mock<IBidListRepository>();
-            bidListRepositoy.Setup(x => x.GetByIdAsync(seedData.BidListId)).ReturnsAsync(seedData);
+            bidListRepositoy.Setup(x => x.GetByIdAsync(seedData.Id)).ReturnsAsync(seedData);
 
             // Act
             IBidListService bidListService = new BidListService(bidListRepositoy.Object);
-            var bidListResult = await bidListService.GetByIdAsync(1);
+            var bidListResult = await bidListService.GetByIdAsync(idToGet);
 
             // Assert
             Assert.NotNull(bidListResult);
-            Assert.Equal(1, bidListResult.BidListId);
+            Assert.Equal(idToGet, bidListResult.Id);
             Assert.Equal("Account Test 1", bidListResult.Account);
         }
         [Fact]
@@ -76,8 +72,9 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         public async void AddAsync_PassBidList_ShouldReturnSameBidList()
         {
             // Arrange
-            BidList seedData = new BidList() { Account = "Account Test 1", Type = "Type Test 1" };
-            seedData.SetBidListId(1);
+            int idToAdd = 1;
+            BidList seedData = new BidList() { Id = idToAdd, Account = "Account Test 1", Type = "Type Test 1" };
+
             var bidListRepositoy = new Mock<IBidListRepository>();
             bidListRepositoy.Setup(x => x.AddAsync(seedData)).ReturnsAsync(seedData);
 
@@ -87,7 +84,7 @@ namespace DotNetEnglishP7.Tests.Unit.Services
 
             // Assert
             Assert.NotNull(bidListResult);
-            Assert.Equal(seedData.BidListId, bidListResult.BidListId);
+            Assert.Equal(seedData.Id, bidListResult.Id);
             Assert.Equal(seedData.Account, bidListResult.Account);
             Assert.Equal(seedData.Type, bidListResult.Type);
         }
@@ -96,8 +93,7 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         {
             // Arrange
             int idToUpdate = 1;
-            BidList seedData = new BidList() { Account = "Account Test 1", Type = "Type Test 1" };
-            seedData.SetBidListId(idToUpdate);
+            BidList seedData = new BidList() { Id = idToUpdate, Account = "Account Test 1", Type = "Type Test 1" };
 
             var bidListRepositoy = new Mock<IBidListRepository>();
             bidListRepositoy.Setup(x => x.GetByIdAsync(idToUpdate)).ReturnsAsync(seedData);
@@ -109,7 +105,7 @@ namespace DotNetEnglishP7.Tests.Unit.Services
 
             // Assert
             Assert.NotNull(bidListResult);
-            Assert.Equal(seedData.BidListId, bidListResult.BidListId);
+            Assert.Equal(seedData.Id, bidListResult.Id);
             Assert.Equal(seedData.Account, bidListResult.Account);
             Assert.Equal(seedData.Type, bidListResult.Type);
         }
@@ -117,19 +113,19 @@ namespace DotNetEnglishP7.Tests.Unit.Services
         public async void DeleteAsync_PassBidList_ShouldReturnSameBidList()
         {
             // Arrange
-            BidList seedData = new BidList() { Account = "Account Test 1", Type = "Type Test 1" };
-            seedData.SetBidListId(1);
+            int idToDelete = 1;
+            BidList seedData = new BidList() { Id = idToDelete, Account = "Account Test 1", Type = "Type Test 1" };
             var bidListRepositoy = new Mock<IBidListRepository>();
-            bidListRepositoy.Setup(x => x.GetByIdAsync(1)).ReturnsAsync(seedData);
+            bidListRepositoy.Setup(x => x.GetByIdAsync(idToDelete)).ReturnsAsync(seedData);
             bidListRepositoy.Setup(x => x.DeleteAsync(seedData)).ReturnsAsync(seedData);
 
             // Act
             IBidListService bidListService = new BidListService(bidListRepositoy.Object);
-            var bidListResult = await bidListService.DeleteAsync(1);
+            var bidListResult = await bidListService.DeleteAsync(idToDelete);
 
             // Assert
             Assert.NotNull(bidListResult);
-            Assert.Equal(seedData.BidListId, bidListResult.BidListId);
+            Assert.Equal(seedData.Id, bidListResult.Id);
             Assert.Equal(seedData.Account, bidListResult.Account);
             Assert.Equal(seedData.Type, bidListResult.Type);
         }

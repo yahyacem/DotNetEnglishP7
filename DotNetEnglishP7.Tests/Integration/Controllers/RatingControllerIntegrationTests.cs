@@ -1,7 +1,12 @@
 ﻿using Dot.Net.WebApi.Controllers;
+using Dot.Net.WebApi.Data;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Identity;
+using DotNetEnglishP7.Repositories;
 using DotNetEnglishP7.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -12,158 +17,220 @@ using System.Threading.Tasks;
 namespace DotNetEnglishP7.Tests.Integration.Controllers
 {
     [Collection("Sequential")]
-    public class RatingControllerIntegrationTests : IntegrationTests
+    public class RatingServiceIntegrationTests : IntegrationTests
     {
         /// <summary>
         /// Test API call of type GET on endpoint /Rating. It should return the list of all Ratings.
         /// </summary>
         [Fact]
-        public async void Get_Home_ShouldReturnListRating()
+        public async void GET_Home_ShouldReturnListRating()
         {
-            // Arrange
-            List<Rating> seedData = new List<Rating>()
+            using (var context = new LocalDbContext(GetOptions()))
             {
-                new Rating() { OrderNumber = 5 },
-                new Rating() { OrderNumber = 10 },
-                new Rating() { OrderNumber = 3 }
-            };
-            for (int i = 1; i <= seedData.Count; i++)
-            {
-                seedData[i - 1].SetId(i);
+                // Arrange
+                List<Rating> seedData = new List<Rating>()
+                {
+                    new Rating() { Id = 1, OrderNumber = 5 },
+                    new Rating() { Id = 2, OrderNumber = 10 },
+                    new Rating() { Id = 3, OrderNumber = 3 }
+                };
+                context.Ratings.AddRange(seedData);
+                context.SaveChanges();
+
+                // Instantiate repository, service and controller
+                IRatingRepository ratingRepository = new RatingRepository(context);
+                IRatingService ratingService = new RatingService(ratingRepository);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RatingController>>();
+                var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService);
+
+                // Act
+                var actionResult = await controller.Home();
+                var okResult = actionResult as OkObjectResult;
+
+                // Assert
+                Assert.NotNull(okResult);
+                Assert.NotNull(okResult.Value);
+                Assert.Equal(200, okResult.StatusCode);
+                // Check response data
+                Assert.Equal(seedData.Count, ((List<Rating>)okResult.Value).Count);
             }
-
-            var ratingService = new Mock<IRatingService>();
-            ratingService.Setup(x => x.GetAllAsync()).ReturnsAsync(seedData);
-            var controller = new RatingController(ratingService.Object);
-
-            // Act
-            var actionResult = await controller.Home();
-            var okResult = actionResult as OkObjectResult;
-
-            // Assert
-            Assert.NotNull(okResult);
-            Assert.NotNull(okResult.Value);
-            Assert.Equal(seedData.Count, ((List<Rating>)okResult.Value).Count);
-            Assert.Equal(200, okResult.StatusCode);
         }
         /// <summary>
         /// Test API call of type GET on endpoint /Rating/{id}. It should return the requested Rating.
         /// </summary>
         [Fact]
-        public async void Get_GetById_PassInt_ShouldReturnSingleRating()
+        public async void GET_GetById_PassInt_ShouldReturnSingleRating()
         {
-            // Arrange
-            int idToReturn = 1;
-            Rating seedData = new Rating() { OrderNumber = 5 };
-            seedData.SetId(idToReturn);
+            using (var context = new LocalDbContext(GetOptions()))
+            {
+                // Arrange
+                int idToReturn = 1;
+                Rating seedData = new Rating() { Id = idToReturn, OrderNumber = 5 };
+                context.Ratings.Add(seedData);
+                context.SaveChanges();
 
-            var ratingService = new Mock<IRatingService>();
-            ratingService.Setup(x => x.GetByIdAsync(idToReturn)).ReturnsAsync(seedData);
-            var controller = new RatingController(ratingService.Object);
+                // Instantiate repository, service and controller
+                IRatingRepository ratingRepository = new RatingRepository(context);
+                IRatingService ratingService = new RatingService(ratingRepository);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RatingController>>();
+                var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService);
 
-            // Act
-            var actionResult = await controller.GetById(idToReturn);
-            var okResult = actionResult as OkObjectResult;
+                // Act
+                var actionResult = await controller.GetById(idToReturn);
+                var okResult = actionResult as OkObjectResult;
 
-            // Assert
-            Assert.NotNull(okResult);
-            Assert.NotNull(okResult.Value);
-            Assert.Equal(seedData.OrderNumber, ((Rating)okResult.Value).OrderNumber);
-            Assert.Equal(200, okResult.StatusCode);
+                // Assert
+                Assert.NotNull(okResult);
+                Assert.NotNull(okResult.Value);
+                Assert.Equal(200, okResult.StatusCode);
+                // Check response data
+                Assert.Equal(seedData.OrderNumber, ((Rating)okResult.Value).OrderNumber);
+            }
         }
         /// <summary>
         /// Test API call of type GET on endpoint /Rating/{id}. It should return NotFound.
         /// </summary>
         [Fact]
-        public async void Get_GetById_PassInt_ShouldReturnNotFound()
+        public async void GET_GetById_PassInt_ShouldReturnNotFound()
         {
-            // Arrange
-            var ratingService = new Mock<IRatingService>();
-            var controller = new RatingController(ratingService.Object);
+            using (var context = new LocalDbContext(GetOptions()))
+            {
+                // Arrange
+                int idToReturn = 1;
 
-            // Act
-            var actionResult = await controller.GetById(1);
-            var notFoundResult = actionResult as NotFoundResult;
+                // Instantiate repository, service and controller
+                IRatingRepository ratingRepository = new RatingRepository(context);
+                IRatingService ratingService = new RatingService(ratingRepository);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RatingController>>();
+                var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService);
 
-            // Assert
-            Assert.NotNull(notFoundResult);
-            Assert.Equal(404, notFoundResult.StatusCode);
+                // Act
+                var actionResult = await controller.GetById(idToReturn);
+                var notFoundResult = actionResult as NotFoundResult;
+
+                // Assert
+                Assert.NotNull(notFoundResult);
+                Assert.Equal(404, notFoundResult.StatusCode);
+            }
         }
         /// <summary>
         /// Test API call of type POST on endpoint /Rating/Add. It should return the created Rating.
         /// </summary>
         [Fact]
-        public async void Post_Add_PassRating_ShouldReturnSameRating()
+        public async void POST_Add_PassRating_ShouldReturnSameRating()
         {
-            // Arrange
-            int idToCreate = 1;
-            Rating seedData = new Rating() { OrderNumber = 5 };
-            seedData.SetId(idToCreate);
+            using (var context = new LocalDbContext(GetOptions()))
+            {
+                // Arrange
+                int idToCreate = 1;
+                Rating seedData = new Rating() { Id = idToCreate, OrderNumber = 5 };
 
-            var ratingService = new Mock<IRatingService>();
-            ratingService.Setup(x => x.AddAsync(seedData)).ReturnsAsync(seedData);
-            var controller = new RatingController(ratingService.Object);
+                // Instantiate repository, service and controller
+                IRatingRepository ratingRepository = new RatingRepository(context);
+                IRatingService ratingService = new RatingService(ratingRepository);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RatingController>>();
+                var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService);
 
-            // Act
-            var actionResult = await controller.Add(seedData);
-            var okResult = actionResult as CreatedAtActionResult;
+                // Act
+                var actionResult = await controller.Add(seedData);
+                var okResult = actionResult as CreatedAtActionResult;
 
-            // Assert
-            Assert.NotNull(okResult);
-            Assert.NotNull(okResult.Value);
-            Assert.Equal(seedData.OrderNumber, ((Rating)okResult.Value).OrderNumber);
-            Assert.Equal(201, okResult.StatusCode);
+                // Assert
+                Assert.NotNull(okResult);
+                Assert.NotNull(okResult.Value);
+                Assert.Equal(201, okResult.StatusCode);
+                // Check response data
+                Assert.Equal(seedData.OrderNumber, ((Rating)okResult.Value).OrderNumber);
+                // Check data in database
+                Assert.Single(await ratingService.GetAllAsync());
+                Assert.NotNull(await ratingService.GetByIdAsync(idToCreate));
+            }
         }
         /// <summary>
         /// Test API call of type POST on endpoint /Rating/Update. It should return the updated Rating.
         /// </summary>
         [Fact]
-        public async void Post_Update_PassRating_ShouldReturnSameRating()
+        public async void PUT_Update_PassRating_ShouldReturnSameRating()
         {
-            // Arrange
-            int idToUpdate = 1;
-            Rating seedData = new Rating() { OrderNumber = 5 };
-            seedData.SetId(idToUpdate);
+            using (var context = new LocalDbContext(GetOptions()))
+            {
+                // Arrange
+                int idToUpdate = 1;
+                Rating seedData = new Rating() { Id = idToUpdate, OrderNumber = 5 };
+                context.Ratings.Add(seedData);
+                context.SaveChanges();
+                // Prepare new data to update
+                Rating updatedSeedData = new Rating() { OrderNumber = 10 };
 
-            var ratingService = new Mock<IRatingService>();
-            ratingService.Setup(x => x.UpdateAsync(seedData)).ReturnsAsync(seedData);
-            ratingService.Setup(x => x.ExistAsync(idToUpdate)).ReturnsAsync(true);
-            var controller = new RatingController(ratingService.Object);
+                // Instantiate repository, service and controller
+                IRatingRepository ratingRepository = new RatingRepository(context);
+                IRatingService ratingService = new RatingService(ratingRepository);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RatingController>>();
+                var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService);
 
-            // Act
-            var actionResult = await controller.Update(idToUpdate, seedData);
-            var okResult = actionResult as OkObjectResult;
+                // Act
+                var actionResult = await controller.Update(idToUpdate, updatedSeedData);
+                var okResult = actionResult as OkObjectResult;
 
-            // Assert
-            Assert.NotNull(okResult);
-            Assert.NotNull(okResult.Value);
-            Assert.Equal(seedData.OrderNumber, ((Rating)okResult.Value).OrderNumber);
-            Assert.Equal(200, okResult.StatusCode);
+                // Assert
+                Assert.NotNull(okResult);
+                Assert.NotNull(okResult.Value);
+                Assert.Equal(200, okResult.StatusCode);
+                // Check response data
+                Assert.Equal(seedData.OrderNumber, ((Rating)okResult.Value).OrderNumber);
+                // Check data in database
+                var ratingUpdated = await ratingService.GetByIdAsync(idToUpdate);
+                Assert.NotNull(ratingUpdated);
+                Assert.Equal(updatedSeedData.OrderNumber, ratingUpdated.OrderNumber);
+            }
+
         }
         /// <summary>
         /// Test API call of type DELETE on endpoint /Rating/Delete. It should return the deleted Rating.
         /// </summary>
         [Fact]
-        public async void Delete_Delete_PassRating_ShouldReturnSameRating()
+        public async void DELETE_Delete_PassRating_ShouldReturnSameRating()
         {
-            // Arrange
-            int idToDelete = 1;
-            Rating seedData = new Rating() { OrderNumber = 5 };
-            seedData.SetId(idToDelete);
+            using (var context = new LocalDbContext(GetOptions()))
+            {
+                // Arrange
+                int idToDelete = 1;
+                Rating seedData = new Rating() { Id = idToDelete, OrderNumber = 5 };
+                context.Ratings.Add(seedData);
+                context.SaveChanges();
 
-            var ratingService = new Mock<IRatingService>();
-            ratingService.Setup(x => x.DeleteAsync(idToDelete)).ReturnsAsync(seedData);
-            var controller = new RatingController(ratingService.Object);
+                // Instantiate repository, service and controller
+                IRatingRepository ratingRepository = new RatingRepository(context);
+                IRatingService ratingService = new RatingService(ratingRepository);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<RatingController>>();
+                var controller = new RatingController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ratingService);
 
-            // Act
-            var actionResult = await controller.Delete(idToDelete);
-            var okResult = actionResult as OkObjectResult;
+                // Act
+                var actionResult = await controller.Delete(idToDelete);
+                var okResult = actionResult as OkObjectResult;
 
-            // Assert
-            Assert.NotNull(okResult);
-            Assert.NotNull(okResult.Value);
-            Assert.Equal(seedData.OrderNumber, ((Rating)okResult.Value).OrderNumber);
-            Assert.Equal(200, okResult.StatusCode);
+                // Assert
+                Assert.NotNull(okResult);
+                Assert.NotNull(okResult.Value);
+                Assert.Equal(200, okResult.StatusCode);
+                // Check response data
+                Assert.Equal(seedData.OrderNumber, ((Rating)okResult.Value).OrderNumber);
+                // Check data in database
+                Assert.Empty(await ratingService.GetAllAsync());
+                Assert.Null(await ratingService.GetByIdAsync(idToDelete));
+            }
         }
     }
 }

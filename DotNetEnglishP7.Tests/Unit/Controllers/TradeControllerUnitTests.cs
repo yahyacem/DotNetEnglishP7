@@ -1,7 +1,10 @@
 ﻿using Dot.Net.WebApi.Controllers;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Identity;
 using DotNetEnglishP7.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -22,18 +25,17 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
             // Arrange
             List<Trade> seedData = new List<Trade>()
             {
-                new Trade() { Account = "Account Test 1" },
-                new Trade() { Account = "Account Test 2" },
-                new Trade() { Account = "Account Test 3" }
+                new Trade() { Id = 1, Account = "Account Test 1" },
+                new Trade() { Id = 2, Account = "Account Test 2" },
+                new Trade() { Id = 3, Account = "Account Test 3" }
             };
-            for (int i = 1; i <= seedData.Count; i++)
-            {
-                seedData[i - 1].SetTradeId(i);
-            }
 
             var tradeService = new Mock<ITradeService>();
             tradeService.Setup(x => x.GetAllAsync()).ReturnsAsync(seedData);
-            var controller = new TradeController(tradeService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<TradeController>>();
+            var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService.Object);
 
             // Act
             var actionResult = await controller.Home();
@@ -53,12 +55,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToReturn = 1;
-            Trade seedData = new Trade() { Account = "Account Test 1" };
-            seedData.SetTradeId(idToReturn);
+            Trade seedData = new Trade() { Id = idToReturn, Account = "Account Test 1" };
 
             var tradeService = new Mock<ITradeService>();
             tradeService.Setup(x => x.GetByIdAsync(idToReturn)).ReturnsAsync(seedData);
-            var controller = new TradeController(tradeService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<TradeController>>();
+            var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService.Object);
 
             // Act
             var actionResult = await controller.GetById(idToReturn);
@@ -78,7 +82,10 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             var tradeService = new Mock<ITradeService>();
-            var controller = new TradeController(tradeService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<TradeController>>();
+            var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService.Object);
 
             // Act
             var actionResult = await controller.GetById(1);
@@ -96,12 +103,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToCreate = 1;
-            Trade seedData = new Trade() { Account = "Account Test 1" };
-            seedData.SetTradeId(idToCreate);
+            Trade seedData = new Trade() { Id = idToCreate, Account = "Account Test 1" };
 
             var tradeService = new Mock<ITradeService>();
             tradeService.Setup(x => x.AddAsync(seedData)).ReturnsAsync(seedData);
-            var controller = new TradeController(tradeService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<TradeController>>();
+            var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService.Object);
 
             // Act
             var actionResult = await controller.Add(seedData);
@@ -121,13 +130,15 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToUpdate = 1;
-            Trade seedData = new Trade() { Account = "Account Test 1" };
-            seedData.SetTradeId(idToUpdate);
+            Trade seedData = new Trade() { Id = idToUpdate, Account = "Account Test 1" };
 
             var tradeService = new Mock<ITradeService>();
             tradeService.Setup(x => x.UpdateAsync(seedData)).ReturnsAsync(seedData);
             tradeService.Setup(x => x.ExistAsync(idToUpdate)).ReturnsAsync(true);
-            var controller = new TradeController(tradeService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<TradeController>>();
+            var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService.Object);
 
             // Act
             var actionResult = await controller.Update(idToUpdate, seedData);
@@ -147,12 +158,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToDelete = 1;
-            Trade seedData = new Trade() { Account = "Account Test 1" };
-            seedData.SetTradeId(idToDelete);
+            Trade seedData = new Trade() { Id = idToDelete, Account = "Account Test 1" };
 
             var tradeService = new Mock<ITradeService>();
             tradeService.Setup(x => x.DeleteAsync(idToDelete)).ReturnsAsync(seedData);
-            var controller = new TradeController(tradeService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<TradeController>>();
+            var controller = new TradeController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, tradeService.Object);
 
             // Act
             var actionResult = await controller.Delete(idToDelete);

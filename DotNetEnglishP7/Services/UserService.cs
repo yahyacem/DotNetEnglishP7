@@ -1,5 +1,9 @@
 ﻿using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Domain;
+using DotNetEnglishP7.Identity;
 using DotNetEnglishP7.Repositories;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace DotNetEnglishP7.Services
 {
@@ -10,18 +14,9 @@ namespace DotNetEnglishP7.Services
         {
             _userRepository = userRepository;
         }
-        public async Task<User?> AddAsync(User user)
+        public async Task<bool> DeleteAsync(int id)
         {
-            return await _userRepository.AddAsync(user);
-        }
-        public async Task<User?> DeleteAsync(int id)
-        {
-            User? userToDelete = await _userRepository.GetByIdAsync(id);
-            if (userToDelete != null)
-            {
-                await _userRepository.DeleteAsync(userToDelete);
-            }
-            return userToDelete;
+            return await _userRepository.DeleteAsync(id);
         }
         public async Task<List<User>> GetAllAsync()
         {
@@ -31,15 +26,23 @@ namespace DotNetEnglishP7.Services
         {
             return await _userRepository.GetByIdAsync(id);
         }
-        public async Task<User?> UpdateAsync(User user)
+        public async Task<bool> UpdateAsync(RegisterUser user)
         {
-            User? userToUpdate = await _userRepository.GetByIdAsync(user.Id);
-            if (userToUpdate != null)
+            if (user == null)
             {
-                userToUpdate = user;
-                await _userRepository.UpdateAsync(userToUpdate);
+                return false;
             }
-            return userToUpdate;
+
+            return await _userRepository.UpdateAsync(user);
+        }
+        [AllowAnonymous]
+        public async Task<IdentityResult?> AddAsync(RegisterUser user)
+        {
+            if (user == null)
+            {
+                return null;
+            }
+            return await _userRepository.AddAsync(user);
         }
         public async Task<bool> ExistAsync(int id)
         {

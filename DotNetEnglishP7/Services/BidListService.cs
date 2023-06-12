@@ -33,13 +33,11 @@ namespace DotNetEnglishP7.Services
         }
         public async Task<BidList?> UpdateAsync(BidList bidList)
         {
-            BidList? bidListToUpdate = await _bidListRepository.GetByIdAsync(bidList.BidListId);
-            if (bidListToUpdate != null)
+            if (bidList != null)
             {
-                bidListToUpdate = bidList;
-                await _bidListRepository.UpdateAsync(bidListToUpdate);
+                await _bidListRepository.UpdateAsync(bidList);
             }
-            return bidListToUpdate;
+            return bidList;
         }
         public async Task<bool> ExistAsync(int id)
         {

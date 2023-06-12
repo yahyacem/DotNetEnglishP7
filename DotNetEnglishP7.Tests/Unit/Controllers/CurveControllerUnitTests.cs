@@ -1,7 +1,10 @@
 ﻿using Dot.Net.WebApi.Controllers;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Identity;
 using DotNetEnglishP7.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -24,18 +27,17 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
             // Arrange
             List<CurvePoint> seedData = new List<CurvePoint>()
             {
-                new CurvePoint() { CurvePointId = 5 },
-                new CurvePoint() { CurvePointId = 10 },
-                new CurvePoint() { CurvePointId = 3 }
+                new CurvePoint() { Id = 1, CurvePointId = 5 },
+                new CurvePoint() { Id = 2, CurvePointId = 10 },
+                new CurvePoint() { Id = 3, CurvePointId = 3 }
             };
-            for (int i = 1; i <= seedData.Count; i++)
-            {
-                seedData[i - 1].SetId(i);
-            }
 
             var curveService = new Mock<ICurveService>();
             curveService.Setup(x => x.GetAllAsync()).ReturnsAsync(seedData);
-            var controller = new CurveController(curveService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<CurveController>>();
+            var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService.Object);
 
             // Act
             var actionResult = await controller.Home();
@@ -55,12 +57,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToReturn = 1;
-            CurvePoint seedData = new CurvePoint() { CurvePointId = 5 };
-            seedData.SetId(idToReturn);
+            CurvePoint seedData = new CurvePoint() { Id = idToReturn, CurvePointId = 5 };
 
             var curveService = new Mock<ICurveService>();
             curveService.Setup(x => x.GetByIdAsync(idToReturn)).ReturnsAsync(seedData);
-            var controller = new CurveController(curveService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<CurveController>>();
+            var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService.Object);
 
             // Act
             var actionResult = await controller.GetById(idToReturn);
@@ -80,7 +84,10 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             var curveService = new Mock<ICurveService>();
-            var controller = new CurveController(curveService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<CurveController>>();
+            var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService.Object);
 
             // Act
             var actionResult = await controller.GetById(1);
@@ -98,12 +105,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToCreate = 1;
-            CurvePoint seedData = new CurvePoint() { CurvePointId = 5 };
-            seedData.SetId(idToCreate);
+            CurvePoint seedData = new CurvePoint() { Id = idToCreate, CurvePointId = 5 };
 
             var curveService = new Mock<ICurveService>();
             curveService.Setup(x => x.AddAsync(seedData)).ReturnsAsync(seedData);
-            var controller = new CurveController(curveService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<CurveController>>();
+            var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService.Object);
 
             // Act
             var actionResult = await controller.Add(seedData);
@@ -123,13 +132,15 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToUpdate = 1;
-            CurvePoint seedData = new CurvePoint() { CurvePointId = 5 };
-            seedData.SetId(idToUpdate);
+            CurvePoint seedData = new CurvePoint() { Id = idToUpdate, CurvePointId = 5 };
 
             var curveService = new Mock<ICurveService>();
             curveService.Setup(x => x.UpdateAsync(seedData)).ReturnsAsync(seedData);
             curveService.Setup(x => x.ExistAsync(idToUpdate)).ReturnsAsync(true);
-            var controller = new CurveController(curveService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<CurveController>>();
+            var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService.Object);
 
             // Act
             var actionResult = await controller.Update(idToUpdate, seedData);
@@ -149,12 +160,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToDelete = 1;
-            CurvePoint seedData = new CurvePoint() { CurvePointId = 5 };
-            seedData.SetId(idToDelete);
+            CurvePoint seedData = new CurvePoint() { Id = idToDelete, CurvePointId = 5 };
 
             var curveService = new Mock<ICurveService>();
             curveService.Setup(x => x.DeleteAsync(idToDelete)).ReturnsAsync(seedData);
-            var controller = new CurveController(curveService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<CurveController>>();
+            var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService.Object);
 
             // Act
             var actionResult = await controller.Delete(idToDelete);

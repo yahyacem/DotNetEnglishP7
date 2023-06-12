@@ -33,13 +33,11 @@ namespace DotNetEnglishP7.Services
         }
         public async Task<Rating?> UpdateAsync(Rating rating)
         {
-            Rating? ratingToUpdate = await _ratingRepository.GetByIdAsync(rating.Id);
-            if (ratingToUpdate != null)
+            if (rating != null)
             {
-                ratingToUpdate = rating;
-                await _ratingRepository.UpdateAsync(ratingToUpdate);
+                await _ratingRepository.UpdateAsync(rating);
             }
-            return ratingToUpdate;
+            return rating;
         }
         public async Task<bool> ExistAsync(int id)
         {

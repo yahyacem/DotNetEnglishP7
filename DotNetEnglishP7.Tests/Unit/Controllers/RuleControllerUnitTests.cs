@@ -1,7 +1,10 @@
 ﻿using Dot.Net.WebApi.Controllers;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Identity;
 using DotNetEnglishP7.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -22,18 +25,17 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
             // Arrange
             List<Rule> seedData = new List<Rule>()
             {
-                new Rule() { Name = "Rule Test 1" },
-                new Rule() { Name = "Rule Test 2" },
-                new Rule() { Name = "Rule Test 3" }
+                new Rule() { Id = 1, Name = "Rule Test 1" },
+                new Rule() { Id = 2, Name = "Rule Test 2" },
+                new Rule() { Id = 3, Name = "Rule Test 3" }
             };
-            for (int i = 1; i <= seedData.Count; i++)
-            {
-                seedData[i - 1].SetId(i);
-            }
 
             var ruleService = new Mock<IRuleService>();
             ruleService.Setup(x => x.GetAllAsync()).ReturnsAsync(seedData);
-            var controller = new RuleController(ruleService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RuleController>>();
+            var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService.Object);
 
             // Act
             var actionResult = await controller.Home();
@@ -53,12 +55,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToReturn = 1;
-            Rule seedData = new Rule() { Name = "Rule Test 1" };
-            seedData.SetId(idToReturn);
+            Rule seedData = new Rule() { Id = idToReturn, Name = "Rule Test 1" };
 
             var ruleService = new Mock<IRuleService>();
             ruleService.Setup(x => x.GetByIdAsync(idToReturn)).ReturnsAsync(seedData);
-            var controller = new RuleController(ruleService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RuleController>>();
+            var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService.Object);
 
             // Act
             var actionResult = await controller.GetById(idToReturn);
@@ -78,7 +82,10 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             var ruleService = new Mock<IRuleService>();
-            var controller = new RuleController(ruleService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RuleController>>();
+            var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService.Object);
 
             // Act
             var actionResult = await controller.GetById(1);
@@ -96,12 +103,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToCreate = 1;
-            Rule seedData = new Rule() { Name = "Rule Test 1" };
-            seedData.SetId(idToCreate);
+            Rule seedData = new Rule() { Id = idToCreate, Name = "Rule Test 1" };
 
             var ruleService = new Mock<IRuleService>();
             ruleService.Setup(x => x.AddAsync(seedData)).ReturnsAsync(seedData);
-            var controller = new RuleController(ruleService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RuleController>>();
+            var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService.Object);
 
             // Act
             var actionResult = await controller.Add(seedData);
@@ -121,13 +130,15 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToUpdate = 1;
-            Rule seedData = new Rule() { Name = "Rule Test 1" };
-            seedData.SetId(idToUpdate);
+            Rule seedData = new Rule() { Id = idToUpdate, Name = "Rule Test 1" };
 
             var ruleService = new Mock<IRuleService>();
             ruleService.Setup(x => x.UpdateAsync(seedData)).ReturnsAsync(seedData);
             ruleService.Setup(x => x.ExistAsync(idToUpdate)).ReturnsAsync(true);
-            var controller = new RuleController(ruleService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RuleController>>();
+            var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService.Object);
 
             // Act
             var actionResult = await controller.Update(idToUpdate, seedData);
@@ -147,12 +158,14 @@ namespace DotNetEnglishP7.Tests.Unit.Controllers
         {
             // Arrange
             int idToDelete = 1;
-            Rule seedData = new Rule() { Name = "Rule Test 1" };
-            seedData.SetId(idToDelete);
+            Rule seedData = new Rule() { Id = idToDelete, Name = "Rule Test 1" };
 
             var ruleService = new Mock<IRuleService>();
             ruleService.Setup(x => x.DeleteAsync(idToDelete)).ReturnsAsync(seedData);
-            var controller = new RuleController(ruleService.Object);
+            var signInManager = new Mock<SignInManager<AppUser>>();
+            var userManager = new Mock<UserManager<AppUser>>();
+            var logger = new Mock<ILogger<RuleController>>();
+            var controller = new RuleController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, ruleService.Object);
 
             // Act
             var actionResult = await controller.Delete(idToDelete);

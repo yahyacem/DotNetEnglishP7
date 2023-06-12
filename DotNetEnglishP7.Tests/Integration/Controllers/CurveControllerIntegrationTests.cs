@@ -1,9 +1,13 @@
 ﻿using Dot.Net.WebApi.Controllers;
 using Dot.Net.WebApi.Data;
 using Dot.Net.WebApi.Domain;
+using DotNetEnglishP7.Identity;
 using DotNetEnglishP7.Repositories;
 using DotNetEnglishP7.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +17,7 @@ using System.Threading.Tasks;
 namespace DotNetEnglishP7.Tests.Integration.Controllers
 {
     [Collection("Sequential")]
-    public class CurveControllerIntegrationTests : IntegrationTests
+    public class CurveServiceIntegrationTests : IntegrationTests
     {
         /// <summary>
         /// Test API call of type GET on endpoint /CurvePoint. It should return the list of all CurvePoint.
@@ -26,21 +30,20 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Arrange
                 List<CurvePoint> seedData = new List<CurvePoint>()
                 {
-                    new CurvePoint() { CurvePointId = 5 },
-                    new CurvePoint() { CurvePointId = 10 },
-                    new CurvePoint() { CurvePointId = 3 }
+                    new CurvePoint() { Id = 1, CurvePointId = 5 },
+                    new CurvePoint() { Id = 2, CurvePointId = 10 },
+                    new CurvePoint() { Id = 3, CurvePointId = 3 }
                 };
-                for (int i = 1; i <= seedData.Count; i++)
-                {
-                    seedData[i - 1].SetId(i);
-                }
                 context.CurvePoints.AddRange(seedData);
                 context.SaveChanges();
 
                 // Instantiate repository, service and controller
                 ICurveRepository curveRepository = new CurveRepository(context);
                 ICurveService curveService = new CurveService(curveRepository);
-                var controller = new CurveController(curveService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<CurveController>>();
+                var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService);
 
                 // Act
                 // Make the call and capture result
@@ -73,7 +76,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 ICurveRepository curveRepositoy = new CurveRepository(context);
                 ICurveService curveService = new CurveService(curveRepositoy);
-                var controller = new CurveController(curveService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<CurveController>>();
+                var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService);
 
                 // Act
                 // Make the call and capture result
@@ -103,7 +109,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 ICurveRepository curveRepository = new CurveRepository(context);
                 ICurveService curveService = new CurveService(curveRepository);
-                var controller = new CurveController(curveService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<CurveController>>();
+                var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService);
 
                 // Act
                 // Make the call and capture result
@@ -129,13 +138,15 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
             {
                 // Arrange
                 int idToCreate = 1;
-                CurvePoint seedData = new CurvePoint() { CurvePointId = 5 };
-                seedData.SetId(idToCreate);
+                CurvePoint seedData = new CurvePoint() { Id = idToCreate, CurvePointId = 5 };
 
                 // Instantiate repository, service and controller
                 ICurveRepository curveRepositoy = new CurveRepository(context);
                 ICurveService curveService = new CurveService(curveRepositoy);
-                var controller = new CurveController(curveService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<CurveController>>();
+                var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService);
 
                 // Act
                 // Make the call and capture result
@@ -157,15 +168,14 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
         /// Test API call of type POST on endpoint /CurvePoint/Update. It should return the updated CurvePoint.
         /// </summary>
         [Fact]
-        public async void POST_Update_PassCurvePoint_ShouldReturnSameCurvePoint()
+        public async void PUT_Update_PassCurvePoint_ShouldReturnSameCurvePoint()
         {
             using (var context = new LocalDbContext(GetOptions()))
             {
                 // Arrange
                 int idToUpdate = 1;
                 // Insert seed data
-                CurvePoint seedData = new CurvePoint() { CurvePointId = 5 };
-                seedData.SetId(idToUpdate);
+                CurvePoint seedData = new CurvePoint() { Id = idToUpdate, CurvePointId = 10 };
                 context.CurvePoints.Add(seedData);
                 context.SaveChanges();
                 // Prepare new data to update
@@ -174,7 +184,10 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Instantiate repository, service and controller
                 ICurveRepository curveRepository = new CurveRepository(context);
                 ICurveService curveService = new CurveService(curveRepository);
-                var controller = new CurveController(curveService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<CurveController>>();
+                var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService);
 
                 // Act
                 // Make the call and capture result
@@ -188,7 +201,9 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Check response data
                 Assert.Equal(updatedSeedData.CurvePointId, ((CurvePoint)okResult.Value).CurvePointId);
                 // Check data in database
-                Assert.NotNull(await curveService.GetByIdAsync(idToUpdate));
+                var curvePointUpdated = await curveService.GetByIdAsync(idToUpdate);
+                Assert.NotNull(curvePointUpdated);
+                Assert.Equal(updatedSeedData.CurvePointId, curvePointUpdated.CurvePointId);
             }
         }
         /// <summary>
@@ -204,21 +219,20 @@ namespace DotNetEnglishP7.Tests.Integration.Controllers
                 // Insert seed data
                 List<CurvePoint> seedData = new List<CurvePoint>()
                 {
-                    new CurvePoint() { CurvePointId = 5 },
-                    new CurvePoint() { CurvePointId = 10 },
-                    new CurvePoint() { CurvePointId = 15 }
+                    new CurvePoint() { Id = 1, CurvePointId = 5 },
+                    new CurvePoint() { Id = 2, CurvePointId = 10 },
+                    new CurvePoint() { Id = 3, CurvePointId = 15 }
                 };
-                for (int i = 1; i <= seedData.Count; i++)
-                {
-                    seedData[i - 1].SetId(i);
-                }
                 context.CurvePoints.AddRange(seedData);
                 context.SaveChanges();
 
                 // Instantiate repository, service and controller
                 ICurveRepository curveRepositoy = new CurveRepository(context);
                 ICurveService curveService = new CurveService(curveRepositoy);
-                var controller = new CurveController(curveService);
+                var signInManager = new Mock<SignInManager<AppUser>>();
+                var userManager = new Mock<UserManager<AppUser>>();
+                var logger = new Mock<ILogger<CurveController>>();
+                var controller = new CurveController(new FakeSignInManager(false), new FakeUserManager(), logger.Object, curveService);
 
                 // Act
                 // Make the call and capture result

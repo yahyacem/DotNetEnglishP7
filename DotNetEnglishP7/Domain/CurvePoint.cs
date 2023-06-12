@@ -6,11 +6,7 @@ namespace Dot.Net.WebApi.Domain
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; private set; }
-        public void SetId(int id)
-        {
-            Id = id;
-        }
+        public int? Id { get; set; }
         [Required]
         public required int? CurvePointId { get; set; }
         public DateTime? AsOfDate { get; set; }
