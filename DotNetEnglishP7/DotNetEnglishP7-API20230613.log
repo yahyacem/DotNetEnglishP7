@@ -1,0 +1,9 @@
+2023-06-13 21:55:31.328 +02:00 [INF] UNKNOWN : /user/login : User logged successfully.
+2023-06-13 21:55:51.005 +02:00 [INF] 2 : /user/login : User logged successfully.
+2023-06-13 21:57:32.578 +02:00 [INF] 2 : /rating/list : List of Ratings retrieved successfully.
+2023-06-13 22:00:12.476 +02:00 [INF] UNKNOWN : /user/login : User logged successfully.
+2023-06-13 22:00:17.028 +02:00 [INF] 2 : /bidList/list : List of BidList retrieved successfully.
+2023-06-13 22:01:54.636 +02:00 [ERR] UNKNOWN : /user/login : Username or password incorrect.
+2023-06-13 22:02:04.324 +02:00 [INF] UNKNOWN : /user/login : User logged successfully.
+2023-06-13 22:02:09.446 +02:00 [INF] 2 : /user/list : List of users retrieved successfully.
+2023-06-13 22:02:20.873 +02:00 [INF] 2 : /bidList/list : List of BidList retrieved successfully.

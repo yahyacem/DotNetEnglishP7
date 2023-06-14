@@ -18,22 +18,18 @@ namespace Dot.Net.WebApi.Controllers
     public class RuleController : BaseController
     {
         IRuleService _ruleService;
-        private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
-        private readonly ILogger _logger;
-        public RuleController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, ILogger<RuleController> logger, IRuleService ruleService)
-            : base(signInManager, userManager, logger)
+        public RuleController(UserManager<AppUser> userManager, IRuleService ruleService)
+            : base(userManager)
         {
-            _signInManager = signInManager;
             _userManager = userManager;
-            _logger = logger;
             _ruleService = ruleService;
         }
         [Authorize]
         [HttpGet("/ruleName/list")]
         public async Task<IActionResult> Home()
         {
-            AddLog("List of Rules retrieved successfully.");
+            await AddLogInformation("List of Rules retrieved successfully.");
             return Ok(await _ruleService.GetAllAsync());
         }
         [Authorize]
@@ -43,9 +39,11 @@ namespace Dot.Net.WebApi.Controllers
             Rule? rule = await _ruleService.GetByIdAsync(id);
             if (rule == null)
             {
+                await AddLogError($"Rule {id} not found.");
                 return NotFound();
             }
 
+            await AddLogInformation($"Rule {id} returned successfully.");
             return Ok(rule);
         }
         [Authorize]
@@ -54,6 +52,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             rule.Id = null;
@@ -61,10 +60,11 @@ namespace Dot.Net.WebApi.Controllers
             
             if (createdRule == null)
             {
+                await AddLogError($"Rule while creating Rating.");
                 return StatusCode(500);
             }
 
-            AddLog($"Rule {createdRule.Id} created successfully.");
+            await AddLogInformation($"Rule {createdRule.Id} created successfully.");
             return CreatedAtAction(nameof(GetById), new { id = createdRule.Id }, createdRule);
         }
         [Authorize]
@@ -73,6 +73,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             rule.Id = id;
@@ -80,10 +81,11 @@ namespace Dot.Net.WebApi.Controllers
 
             if (updatedRule == null)
             {
+                await AddLogError($"Rule {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"Rule {id} updated successfully.");
+            await AddLogInformation($"Rule {id} updated successfully.");
             return Ok(updatedRule);
         }
         [Authorize]
@@ -92,16 +94,18 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             Rule? deletedRule = await _ruleService.DeleteAsync(id);
 
             if (deletedRule == null)
             {
+                await AddLogError($"Rule {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"Rule {id} deleted successfully.");
+            await AddLogInformation($"Rule {id} deleted successfully.");
             return Ok(deletedRule);
         }
     }

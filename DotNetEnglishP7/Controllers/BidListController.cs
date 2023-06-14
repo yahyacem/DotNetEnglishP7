@@ -20,22 +20,18 @@ namespace Dot.Net.WebApi.Controllers
     public class BidListController : BaseController
     {
         private IBidListService _bidListService;
-        private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
-        private readonly ILogger _logger;
-        public BidListController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, ILogger<BidListController> logger, IBidListService bidListService)
-            : base(signInManager, userManager, logger)
+        public BidListController(UserManager<AppUser> userManager, IBidListService bidListService)
+            : base(userManager)
         {
-            _signInManager = signInManager;
             _userManager = userManager;
-            _logger = logger;
             _bidListService = bidListService;
         }
         [Authorize]
         [HttpGet("/bidList/list")]
         public async Task<IActionResult> Home()
         {
-            AddLog("List of BidList retrieved successfully.");
+            await AddLogInformation("List of BidList retrieved successfully.");
             return Ok(await _bidListService.GetAllAsync());
         }
         [Authorize]
@@ -45,10 +41,11 @@ namespace Dot.Net.WebApi.Controllers
             BidList? bidList = await _bidListService.GetByIdAsync(id);
             if (bidList == null)
             {
+                await AddLogError($"BidList {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"BidList {id} returned successfully.");
+            await AddLogInformation($"BidList {id} returned successfully.");
             return Ok(bidList);
         }
         [Authorize]
@@ -57,6 +54,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             bidList.Id = null;
@@ -64,10 +62,11 @@ namespace Dot.Net.WebApi.Controllers
 
             if (createdBidList == null)
             {
+                await AddLogError($"Error while creating BidList.");
                 return StatusCode(500);
             }
 
-            AddLog($"BidList {createdBidList.Id} created successfully.");
+            await AddLogInformation($"BidList {createdBidList.Id} created successfully.");
             return CreatedAtAction(nameof(GetById), new { id = createdBidList.Id }, createdBidList);
         }
         [Authorize]
@@ -76,6 +75,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             bidList.Id = id;
@@ -83,10 +83,11 @@ namespace Dot.Net.WebApi.Controllers
 
             if (updatedBidList == null)
             {
+                await AddLogError($"BidList {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"BidList {id} updated successfully.");
+            await AddLogInformation($"BidList {id} updated successfully.");
             return Ok(updatedBidList);
         }
         [Authorize]
@@ -95,16 +96,18 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             BidList? deletedBidList = await _bidListService.DeleteAsync(id);
 
             if (deletedBidList == null)
             {
+                await AddLogError($"BidList {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"BidList {id} deleted successfully.");
+            await AddLogInformation($"BidList {id} deleted successfully.");
             return Ok(deletedBidList);
         }
     }

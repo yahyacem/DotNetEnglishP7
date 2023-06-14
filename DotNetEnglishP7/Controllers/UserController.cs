@@ -28,13 +28,11 @@ namespace Dot.Net.WebApi.Controllers
         private static IMapper _mapper = MappingProfile.InitializeAutoMapper().CreateMapper();
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
-        private readonly ILogger _logger;
         private readonly RoleManager<AppRole> _roleManager;
-        public UserController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, ILogger<UserController> logger, RoleManager<AppRole> roleManager) : base(signInManager, userManager, logger)
+        public UserController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager,RoleManager<AppRole> roleManager) : base(userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
-            _logger = logger;
             _roleManager = roleManager;
         }
         [AllowAnonymous]
@@ -43,6 +41,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             var result = await _signInManager.PasswordSignInAsync(user.UserName,
@@ -50,7 +49,7 @@ namespace Dot.Net.WebApi.Controllers
 
             if (result.Succeeded)
             {
-                AddLog("User logged successfully.");
+                await AddLogInformation("User logged successfully.");
                 return Ok();    
             }
 
@@ -59,6 +58,7 @@ namespace Dot.Net.WebApi.Controllers
                 ModelState.AddModelError("Locked", "Account is currently locked.");
             }
 
+            await AddLogError($"Username or password incorrect.");
             return Unauthorized("Username or password incorrect.");
         }
         [AllowAnonymous]
@@ -67,6 +67,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
 
@@ -76,12 +77,13 @@ namespace Dot.Net.WebApi.Controllers
 
             if (result == null)
             {
-                AddLog($"Error when trying to register new user.");
+                await AddLogError($"Error when trying to register new user.");
                 return StatusCode(500);
             }
 
             if (!result.Succeeded)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(result.Errors);
             }
 
@@ -94,7 +96,7 @@ namespace Dot.Net.WebApi.Controllers
 
             await _userManager.AddToRoleAsync(userToCreate, roleToAdd.Name);
 
-            AddLog("User created successfully.");
+            await AddLogInformation("User created successfully.");
             return Ok();
         }
         [Authorize]
@@ -106,7 +108,7 @@ namespace Dot.Net.WebApi.Controllers
             {
                 listUsers.Add(_mapper.Map<User>(user));
             }
-            AddLog("List of users retrieved successfully.");
+            await AddLogInformation("List of users retrieved successfully.");
             return Ok(listUsers);
         }
         [Authorize]
@@ -116,10 +118,11 @@ namespace Dot.Net.WebApi.Controllers
             var user = await _userManager.FindByIdAsync(id.ToString());
             if (user == null)
             {
+                await AddLogError($"User {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"User {id} returned successfully.");
+            await AddLogInformation($"User {id} returned successfully.");
             return Ok(_mapper.Map<User>(user));
         }
         [Authorize]
@@ -128,6 +131,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
 
@@ -135,11 +139,13 @@ namespace Dot.Net.WebApi.Controllers
 
             if (userToUpdate == null)
             {
+                await AddLogError($"User {id} not found.");
                 return NotFound();
             }
 
             if (userToUpdate.Id.ToString() != _userManager.GetUserId(User) && !User.IsInRole("admin"))
             {
+                await AddLogError($"User unauthorized.");
                 return Unauthorized();
             }
 
@@ -149,11 +155,11 @@ namespace Dot.Net.WebApi.Controllers
 
             if (!result.Succeeded)
             {
-                AddLog($"Error when trying to update user {id}.");
+                await AddLogError($"Error when trying to update user {id}.");
                 return StatusCode(500, result.Errors);
             }
 
-            AddLog($"User {id} updated successfully.");
+            await AddLogInformation($"User {id} updated successfully.");
             return Ok();
         }
         [Authorize]
@@ -162,6 +168,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
 
@@ -169,11 +176,13 @@ namespace Dot.Net.WebApi.Controllers
 
             if (userToDelete == null)
             {
+                await AddLogError($"User {id} not found.");
                 return NotFound();
             }
 
             if (userToDelete.Id.ToString() != _userManager.GetUserId(User) && !User.IsInRole("admin"))
             {
+                await AddLogError($"User unauthorized.");
                 return Unauthorized();
             }
 
@@ -181,11 +190,11 @@ namespace Dot.Net.WebApi.Controllers
 
             if (!result.Succeeded)
             {
-                AddLog($"Error when trying to delete user {id}.");
+                await AddLogError($"Error when trying to delete user {id}.");
                 return StatusCode(500, result.Errors);
             }
 
-            AddLog($"User {id} deleted successfully.");
+            await AddLogInformation($"User {id} deleted successfully.");
             return Ok();
         }
     }

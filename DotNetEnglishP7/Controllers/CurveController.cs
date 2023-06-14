@@ -19,22 +19,18 @@ namespace Dot.Net.WebApi.Controllers
     public class CurveController : BaseController
     {
         private ICurveService _curveService;
-        private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
-        private readonly ILogger _logger;
-        public CurveController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, ILogger<CurveController> logger, ICurveService curveService)
-            : base(signInManager, userManager, logger)
+        public CurveController(UserManager<AppUser> userManager, ICurveService curveService)
+            : base(userManager)
         {
-            _signInManager = signInManager;
             _userManager = userManager;
-            _logger = logger;
             _curveService = curveService;
         }
         [Authorize]
         [HttpGet("/curvePoint/list")]
         public async Task<IActionResult> Home()
         {
-            AddLog("List of Curves retrieved successfully.");
+            await AddLogInformation("List of Curves retrieved successfully.");
             return Ok(await _curveService.GetAllAsync());
         }
         [Authorize]
@@ -44,10 +40,11 @@ namespace Dot.Net.WebApi.Controllers
             CurvePoint? curvePoint = await _curveService.GetByIdAsync(id);
             if (curvePoint == null)
             {
+                await AddLogError($"Curve {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"BidList {id} returned successfully.");
+            await AddLogInformation($"Curve {id} returned successfully.");
             return Ok(curvePoint);
         }
         [Authorize]
@@ -56,6 +53,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             curvePoint.Id = null;
@@ -63,10 +61,11 @@ namespace Dot.Net.WebApi.Controllers
 
             if (createdCurvePoint == null)
             {
+                await AddLogError($"Error while creating Curve.");
                 return StatusCode(500);
             }
 
-            AddLog($"Curve {createdCurvePoint.Id} updated successfully.");
+            await AddLogInformation($"Curve {createdCurvePoint.Id} updated successfully.");
             return CreatedAtAction(nameof(GetById), new { id = createdCurvePoint.Id }, createdCurvePoint);
         }
         [Authorize]
@@ -75,6 +74,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
 
@@ -83,10 +83,11 @@ namespace Dot.Net.WebApi.Controllers
             
             if (updatedCurvePoint == null)
             {
+                await AddLogError($"Curve {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"Curve {id} updated successfully.");
+            await AddLogInformation($"Curve {id} updated successfully.");
             return Ok(updatedCurvePoint);
         }
         [Authorize]
@@ -95,16 +96,18 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             CurvePoint? deletedCurvePoint = await _curveService.DeleteAsync(id);
             
             if (deletedCurvePoint == null)
-            { 
+            {
+                await AddLogError($"Curve {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"Curve {id} deleted successfully.");
+            await AddLogInformation($"Curve {id} deleted successfully.");
             return Ok(deletedCurvePoint);
         }
     }

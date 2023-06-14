@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,9 +22,14 @@ builder.Services.AddDbContext<LocalDbContext>(options =>
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
 
-// Setup logs
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
+builder.Host.UseSerilog((context, configuration) => 
+    configuration.WriteTo.Console(restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information,
+    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
+    .WriteTo.File("DotNetEnglishP7-API.log",
+    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}",
+    rollingInterval: RollingInterval.Day,
+    restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information));
+
 
 builder.Services.AddMvc(options =>
 {
@@ -58,6 +64,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 

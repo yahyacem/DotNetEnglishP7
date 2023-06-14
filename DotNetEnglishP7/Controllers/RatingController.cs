@@ -18,22 +18,18 @@ namespace Dot.Net.WebApi.Controllers
     public class RatingController : BaseController
     {
         IRatingService _ratingService;
-        private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
-        private readonly ILogger _logger;
-        public RatingController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, ILogger<RatingController> logger, IRatingService ratingService)
-            : base(signInManager, userManager, logger)
+        public RatingController(UserManager<AppUser> userManager, IRatingService ratingService)
+            : base(userManager)
         {
-            _signInManager = signInManager;
             _userManager = userManager;
-            _logger = logger;
             _ratingService = ratingService;
         }
         [Authorize]
         [HttpGet("/rating/list")]
         public async Task<IActionResult> Home()
         {
-            AddLog("List of Ratings retrieved successfully.");
+            await AddLogInformation("List of Ratings retrieved successfully.");
             return Ok(await _ratingService.GetAllAsync());
         }
         [Authorize]
@@ -43,10 +39,11 @@ namespace Dot.Net.WebApi.Controllers
             Rating? rating = await _ratingService.GetByIdAsync(id);
             if (rating == null)
             {
+                await AddLogError($"Rating {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"Curve {id} returned successfully.");
+            await AddLogInformation($"Rating {id} returned successfully.");
             return Ok(rating);
         }
         [Authorize]
@@ -55,6 +52,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             rating.Id = null;
@@ -62,10 +60,11 @@ namespace Dot.Net.WebApi.Controllers
             
             if (createdRating == null)
             {
+                await AddLogError($"Error while creating Rating.");
                 return StatusCode(500);
             }
 
-            AddLog($"Rating {createdRating.Id} created successfully.");
+            await AddLogInformation($"Rating {createdRating.Id} created successfully.");
             return CreatedAtAction(nameof(GetById), new { id = createdRating.Id }, createdRating);
         }
         [Authorize]
@@ -74,6 +73,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             rating.Id = id;
@@ -81,10 +81,11 @@ namespace Dot.Net.WebApi.Controllers
             
             if (updatedRating == null)
             {
+                await AddLogError($"Rating {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"Rating {id} updated successfully.");
+            await AddLogInformation($"Rating {id} updated successfully.");
             return Ok(updatedRating);
         }
         [Authorize]
@@ -93,16 +94,18 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             Rating? deletedRating = await _ratingService.DeleteAsync(id);
             
             if (deletedRating == null)
             {
+                await AddLogError($"Rating {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"Rating {id} deleted successfully.");
+            await AddLogInformation($"Rating {id} deleted successfully.");
             return Ok(deletedRating);
         }
     }

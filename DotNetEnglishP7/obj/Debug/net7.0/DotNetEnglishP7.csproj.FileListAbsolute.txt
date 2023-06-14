@@ -364,3 +364,12 @@ C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\obj\
 C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\obj\Debug\net7.0\DotNetEnglishP7.pdb
 C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\obj\Debug\net7.0\DotNetEnglishP7.genruntimeconfig.cache
 C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\obj\Debug\net7.0\ref\DotNetEnglishP7.dll
+C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Serilog.dll
+C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Serilog.AspNetCore.dll
+C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Serilog.Extensions.Hosting.dll
+C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Serilog.Extensions.Logging.dll
+C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Serilog.Formatting.Compact.dll
+C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Serilog.Settings.Configuration.dll
+C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Serilog.Sinks.Console.dll
+C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Serilog.Sinks.Debug.dll
+C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\bin\Debug\net7.0\Serilog.Sinks.File.dll

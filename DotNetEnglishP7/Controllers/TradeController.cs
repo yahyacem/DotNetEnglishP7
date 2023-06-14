@@ -19,22 +19,18 @@ namespace Dot.Net.WebApi.Controllers
     public class TradeController : BaseController
     {
         ITradeService _tradeService;
-        private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
-        private readonly ILogger _logger;
-        public TradeController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, ILogger<TradeController> logger, ITradeService tradeService)
-            : base(signInManager, userManager, logger)
-        {
-            _signInManager = signInManager;
-            _userManager = userManager;
-            _logger = logger;
-            _tradeService = tradeService;
+        public TradeController(UserManager<AppUser> userManager, ITradeService tradeService) 
+            : base(userManager) 
+        { 
+            _userManager = userManager; 
+            _tradeService = tradeService; 
         }
         [Authorize]
         [HttpGet("/trade/list")]
         public async Task<IActionResult> Home()
         {
-            AddLog("List of Trades retrieved successfully.");
+            await AddLogInformation("List of Trades retrieved successfully.");
             return Ok(await _tradeService.GetAllAsync());
         }
         [Authorize]
@@ -44,10 +40,11 @@ namespace Dot.Net.WebApi.Controllers
             Trade? trade = await _tradeService.GetByIdAsync(id);
             if (trade == null)
             {
+                await AddLogError($"Trade {id} not found.");
                 return NotFound();
             }
 
-            AddLog($"Trade {id} returned successfully.");
+            await AddLogInformation($"Trade {id} returned successfully.");
             return Ok(trade);
         }
         [Authorize]
@@ -56,6 +53,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             trade.Id = null;
@@ -63,10 +61,11 @@ namespace Dot.Net.WebApi.Controllers
             
             if (createdTrade == null)
             {
+                await AddLogError($"Trade while creating Rating.");
                 return StatusCode(500);
             }
 
-            AddLog($"Trade {createdTrade.Id} returned successfully.");
+            await AddLogInformation($"Trade {createdTrade.Id} returned successfully.");
             return CreatedAtAction(nameof(GetById), new { id = createdTrade.Id }, createdTrade);
         }
         [Authorize]
@@ -75,6 +74,7 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             trade.Id = id;
@@ -82,9 +82,11 @@ namespace Dot.Net.WebApi.Controllers
 
             if (updatedTrade == null)
             {
+                await AddLogError($"Trade {id} not found.");
                 return NotFound();
             }
 
+            await AddLogInformation($"Trade {id} updated successfully.");
             return Ok(updatedTrade);
         }
         [Authorize]
@@ -93,16 +95,18 @@ namespace Dot.Net.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await AddLogError($"Bad request: {ModelState}");
                 return BadRequest(ModelState);
             }
             Trade? deletedTrade = await _tradeService.DeleteAsync(id);
             
             if (deletedTrade == null)
             {
+                await AddLogError($"Trade {id} not found.");
                 return NotFound();
             }
             
-            AddLog($"Trade {id} deleted successfully.");
+            await AddLogInformation($"Trade {id} deleted successfully.");
             return Ok(deletedTrade);
         }
     }
