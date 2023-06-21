@@ -1,0 +1,1039 @@
+2023-06-21 18:31:05.501 +02:00 [INF] User profile is available. Using 'C:\Users\yahya\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-21 18:31:06.152 +02:00 [INF] Now listening on: http://localhost:5291
+2023-06-21 18:31:06.159 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-21 18:31:06.161 +02:00 [INF] Hosting environment: Development
+2023-06-21 18:31:06.163 +02:00 [INF] Content root path: C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7
+2023-06-21 18:31:12.124 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/index.html - -
+2023-06-21 18:31:13.317 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/index.html - - - 200 - text/html;charset=utf-8 1193.8346ms
+2023-06-21 18:31:14.067 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_vs/browserLink - -
+2023-06-21 18:31:14.135 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - -
+2023-06-21 18:31:14.208 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 71.9024ms
+2023-06-21 18:31:14.558 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 491.6962ms
+2023-06-21 18:31:14.673 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - -
+2023-06-21 18:31:15.630 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 954.4239ms
+2023-06-21 18:31:59.961 +02:00 [INF] User profile is available. Using 'C:\Users\yahya\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-21 18:32:00.389 +02:00 [INF] Now listening on: http://localhost:5291
+2023-06-21 18:32:00.397 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-21 18:32:00.398 +02:00 [INF] Hosting environment: Development
+2023-06-21 18:32:00.399 +02:00 [INF] Content root path: C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7
+2023-06-21 18:32:02.275 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/index.html - -
+2023-06-21 18:32:03.199 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/index.html - - - 200 - text/html;charset=utf-8 929.4827ms
+2023-06-21 18:32:03.257 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_vs/browserLink - -
+2023-06-21 18:32:03.257 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - -
+2023-06-21 18:32:03.355 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 97.7106ms
+2023-06-21 18:32:03.498 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 240.0491ms
+2023-06-21 18:32:03.573 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - -
+2023-06-21 18:32:04.010 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 436.6833ms
+2023-06-21 18:36:43.988 +02:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 18:36:44.072 +02:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 18:36:44.130 +02:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 18:37:17.201 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 18:37:17.266 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 18:37:17.274 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 18:37:17.279 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 18:37:17.306 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 18:37:17.320 +02:00 [INF] Applying migration '20230621163706_SeedMigration'.
+2023-06-21 18:37:17.479 +02:00 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (1, N'd622483e-c8d3-4282-a8fd-5df38895943a', N'SuperAdmin', N'SUPERADMIN'),
+(2, N'58c7e99a-d46b-4899-a7c8-3f54654adce6', N'User', N'USER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] OFF;
+2023-06-21 18:37:17.499 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FullName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (1, 0, N'51cb0cc7-ddd2-42a7-b7ed-5d87310642db', NULL, CAST(0 AS bit), N'superadmin', CAST(0 AS bit), NULL, NULL, N'SUPERADMIN', N'AQAAAAIAAYagAAAAEIr3wkMk+3xljy93ENVRFft0ZtjRApHmk7aCL3SMQV9NpTzYwpHTVepKTm4SvjaFfg==', NULL, CAST(0 AS bit), NULL, CAST(0 AS bit), N'SuperAdmin');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FullName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-06-21 18:37:17.504 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230621163706_SeedMigration', N'7.0.5');
+2023-06-21 18:59:23.343 +02:00 [INF] User profile is available. Using 'C:\Users\yahya\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-21 18:59:23.980 +02:00 [INF] Now listening on: http://localhost:5291
+2023-06-21 18:59:23.984 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-21 18:59:23.986 +02:00 [INF] Hosting environment: Development
+2023-06-21 18:59:23.987 +02:00 [INF] Content root path: C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7
+2023-06-21 18:59:27.032 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/index.html - -
+2023-06-21 18:59:27.799 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/index.html - - - 200 - text/html;charset=utf-8 769.9830ms
+2023-06-21 18:59:27.887 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_vs/browserLink - -
+2023-06-21 18:59:27.896 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - -
+2023-06-21 18:59:27.906 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 9.8064ms
+2023-06-21 18:59:28.066 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 179.4424ms
+2023-06-21 18:59:28.129 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - -
+2023-06-21 18:59:28.541 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 411.7379ms
+2023-06-21 18:59:53.085 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5291/user/login application/json 59
+2023-06-21 18:59:53.109 +02:00 [WRN] Failed to determine the https port for redirect.
+2023-06-21 18:59:53.120 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 18:59:53.233 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(DotNetEnglishP7.Identity.LoginUser) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 18:59:55.818 +02:00 [INF] Executed DbCommand (92ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 18:59:55.857 +02:00 [ERR] UNKNOWN : /user/login : Username or password incorrect.
+2023-06-21 18:59:55.945 +02:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-06-21 18:59:55.961 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7) in 2721.4248ms
+2023-06-21 18:59:55.964 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 18:59:55.970 +02:00 [INF] HTTP POST /user/login responded 401 in 2865.2777 ms
+2023-06-21 18:59:55.991 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5291/user/login application/json 59 - 401 - text/plain;+charset=utf-8 2906.8097ms
+2023-06-21 19:00:17.458 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5291/user/login application/json 60
+2023-06-21 19:00:17.474 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 19:00:17.480 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(DotNetEnglishP7.Identity.LoginUser) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:00:18.120 +02:00 [INF] Executed DbCommand (63ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:00:18.483 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7) in 1001.5ms
+2023-06-21 19:00:18.486 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 19:00:18.488 +02:00 [ERR] HTTP POST /user/login responded 500 in 1015.6867 ms
+System.InvalidOperationException: User security stamp cannot be null.
+   at Microsoft.AspNetCore.Identity.UserManager`1.GetSecurityStampAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserClaimsPrincipalFactory`1.GenerateClaimsAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserClaimsPrincipalFactory`2.GenerateClaimsAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserClaimsPrincipalFactory`1.CreateAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.CreateUserPrincipalAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.SignInWithClaimsAsync(TUser user, AuthenticationProperties authenticationProperties, IEnumerable`1 additionalClaims)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.SignInOrTwoFactorAsync(TUser user, Boolean isPersistent, String loginProvider, Boolean bypassTwoFactor)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.PasswordSignInAsync(TUser user, String password, Boolean isPersistent, Boolean lockoutOnFailure)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.PasswordSignInAsync(String userName, String password, Boolean isPersistent, Boolean lockoutOnFailure)
+   at Dot.Net.WebApi.Controllers.UserController.Login(LoginUser user) in C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\Controllers\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-06-21 19:00:18.603 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: User security stamp cannot be null.
+   at Microsoft.AspNetCore.Identity.UserManager`1.GetSecurityStampAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserClaimsPrincipalFactory`1.GenerateClaimsAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserClaimsPrincipalFactory`2.GenerateClaimsAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserClaimsPrincipalFactory`1.CreateAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.CreateUserPrincipalAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.SignInWithClaimsAsync(TUser user, AuthenticationProperties authenticationProperties, IEnumerable`1 additionalClaims)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.SignInOrTwoFactorAsync(TUser user, Boolean isPersistent, String loginProvider, Boolean bypassTwoFactor)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.PasswordSignInAsync(TUser user, String password, Boolean isPersistent, Boolean lockoutOnFailure)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.PasswordSignInAsync(String userName, String password, Boolean isPersistent, Boolean lockoutOnFailure)
+   at Dot.Net.WebApi.Controllers.UserController.Login(LoginUser user) in C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\Controllers\UserController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-06-21 19:00:18.645 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5291/user/login application/json 60 - 500 - text/plain;+charset=utf-8 1190.2462ms
+2023-06-21 19:02:31.131 +02:00 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:02:31.236 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:02:31.241 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:02:31.244 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:02:31.264 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 19:02:31.276 +02:00 [INF] No migrations were applied. The database is already up to date.
+2023-06-21 19:02:49.427 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:02:49.490 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:02:49.533 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 19:03:34.682 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:03:34.729 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:03:34.750 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 19:04:41.311 +02:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:04:41.362 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:04:41.365 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:04:41.368 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:04:41.383 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 19:04:41.393 +02:00 [INF] Applying migration '20230621170430_SeedMigration2'.
+2023-06-21 19:04:41.484 +02:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'386b1421-5d7a-43df-a4ab-f46ad7826e75'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-06-21 19:04:41.488 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'6fb8e1dd-3a70-489b-a124-15254be18c42'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-06-21 19:04:41.495 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [ConcurrencyStamp] = N'e477daab-ba56-4a00-afc0-45b4186a775e', [PasswordHash] = N'AQAAAAIAAYagAAAAEJw1j5UU/bWqvXolJWSV+03/wS6J/iTSRaWIH9vh50S42UO5kt71KMINN10eT2GS1g==', [SecurityStamp] = N'65725d0d-4698-41b7-bf01-539742c15b56'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-06-21 19:04:41.501 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230621170430_SeedMigration2', N'7.0.5');
+2023-06-21 19:05:45.581 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:05:45.666 +02:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:05:45.685 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 19:05:57.999 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:05:58.056 +02:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:05:58.062 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:05:58.065 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:05:58.083 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 19:05:58.094 +02:00 [INF] Applying migration '20230621170551_SeedMigration'.
+2023-06-21 19:05:58.151 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'f8c14258-5d50-4244-83e2-fbc20b8f5622'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-06-21 19:05:58.157 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'd890afce-c6c8-4250-a1c0-25184e2ad31c'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-06-21 19:05:58.162 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [ConcurrencyStamp] = N'9315565f-b14d-42ff-b539-8f15ee5ad12f', [PasswordHash] = N'AQAAAAIAAYagAAAAEB9r0+U54zr3WdKydtqgTeYMKzJAIS7SvqNI0JVFNzON7+vJGfXeRgqbp66BAppILw==', [SecurityStamp] = N'08b92674-ebcb-46a6-ad45-e8dc4e57ed6f'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-06-21 19:05:58.167 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230621170551_SeedMigration', N'7.0.5');
+2023-06-21 19:08:45.421 +02:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:08:45.520 +02:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:08:45.530 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:08:45.534 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:08:45.553 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 19:08:45.566 +02:00 [INF] Applying migration '20230621170835_SeedMigration'.
+2023-06-21 19:08:45.657 +02:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'c74ff728-0e02-40c6-9013-8bbf9e289273'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-06-21 19:08:45.664 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'5c59b33a-51fd-4099-83b7-9f04de206c4a'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-06-21 19:08:45.667 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [ConcurrencyStamp] = N'269e433c-98e6-4442-b840-28f693f4814b', [PasswordHash] = N'AQAAAAIAAYagAAAAEOOGNt8J8qhY5kglp1lgSMWA0UgV4LeGJppdX6+xBrBBVjoqc4dSPgd46+XztlhVTA==', [SecurityStamp] = N'9abfcc41-acf2-4d13-8ff7-f750703c3276'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-06-21 19:08:45.673 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230621170835_SeedMigration', N'7.0.5');
+2023-06-21 19:14:58.488 +02:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:14:58.540 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:14:58.556 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:14:58.562 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:14:58.603 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 19:14:58.614 +02:00 [INF] Applying migration '20230621171221_SeedMigration'.
+2023-06-21 19:14:58.688 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'dbc35e5c-c409-4ebc-86f6-17f90ec05a22'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-06-21 19:14:58.695 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'ebdb44d4-d740-43f1-8699-20b56de34527'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-06-21 19:14:58.730 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FullName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (1, 0, N'93a14a8e-a6c1-4a86-9750-54b6523ba6e2', NULL, CAST(0 AS bit), N'Super Admin', CAST(0 AS bit), NULL, NULL, N'SUPERADMIN', N'AQAAAAIAAYagAAAAEL2apa3wUSu3nIhQjlVHOR7MqQ+a9hMct2WTNMnm3cu4qzEV1Vo7xYTx9ejZfhvvPw==', NULL, CAST(0 AS bit), N'c78d2dfe-f372-4e31-b0dd-3d424667acbd', CAST(0 AS bit), N'superAdmin');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FullName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-06-21 19:14:58.749 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FullName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (2, 0, N'ca21b12a-df17-4218-a813-48a2356bf112', NULL, CAST(0 AS bit), N'Standard User', CAST(0 AS bit), NULL, NULL, N'STANDARDUSER', N'AQAAAAIAAYagAAAAECeqFhDKD9Exv2qGJDdCHFpkEFjmxSQZcxAfbtPSB/zs9kLGwrHuKBPE0hluiElX8Q==', NULL, CAST(0 AS bit), N'5422f7e9-6fbb-43e4-92b5-0e3580813941', CAST(0 AS bit), N'standardUser');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FullName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-06-21 19:14:58.752 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230621171221_SeedMigration', N'7.0.5');
+2023-06-21 19:15:32.808 +02:00 [INF] User profile is available. Using 'C:\Users\yahya\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-21 19:15:33.199 +02:00 [INF] Now listening on: http://localhost:5291
+2023-06-21 19:15:33.202 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-21 19:15:33.203 +02:00 [INF] Hosting environment: Development
+2023-06-21 19:15:33.204 +02:00 [INF] Content root path: C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7
+2023-06-21 19:15:36.026 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/index.html - -
+2023-06-21 19:15:36.802 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/index.html - - - 200 - text/html;charset=utf-8 781.6812ms
+2023-06-21 19:15:36.880 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_vs/browserLink - -
+2023-06-21 19:15:36.898 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - -
+2023-06-21 19:15:36.928 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 30.2031ms
+2023-06-21 19:15:36.968 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 88.0658ms
+2023-06-21 19:15:37.108 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - -
+2023-06-21 19:15:37.735 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 626.0790ms
+2023-06-21 19:16:06.065 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5291/user/login application/json 60
+2023-06-21 19:16:06.085 +02:00 [WRN] Failed to determine the https port for redirect.
+2023-06-21 19:16:06.093 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 19:16:06.179 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(DotNetEnglishP7.Identity.LoginUser) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:16:08.707 +02:00 [INF] Executed DbCommand (71ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:16:08.991 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-06-21 19:16:09.025 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:16:09.046 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-06-21 19:16:09.050 +02:00 [INF] UNKNOWN : /user/login : User logged successfully.
+2023-06-21 19:16:09.058 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-21 19:16:09.064 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7) in 2879.7784ms
+2023-06-21 19:16:09.066 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 19:16:09.069 +02:00 [INF] HTTP POST /user/login responded 200 in 2987.2304 ms
+2023-06-21 19:16:09.081 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5291/user/login application/json 60 - 200 0 - 3016.5969ms
+2023-06-21 19:16:18.422 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/user/list - -
+2023-06-21 19:16:18.505 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:16:18.512 +02:00 [INF] Route matched with {action = "Home", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Home() on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:16:19.117 +02:00 [INF] Executed DbCommand (71ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+2023-06-21 19:16:19.142 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:16:19.233 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7) in 719.8172ms
+2023-06-21 19:16:19.236 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:16:19.238 +02:00 [ERR] HTTP GET /user/list responded 500 in 741.8366 ms
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Dot.Net.WebApi.Controllers.UserController.Home() in C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\Controllers\UserController.cs:line 110
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-06-21 19:16:19.321 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Dot.Net.WebApi.Controllers.UserController.Home() in C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\Controllers\UserController.cs:line 110
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-06-21 19:16:19.343 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/user/list - - - 500 - text/plain;+charset=utf-8 920.8566ms
+2023-06-21 19:16:44.620 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/user/list - -
+2023-06-21 19:16:44.709 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:16:44.714 +02:00 [INF] Route matched with {action = "Home", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Home() on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:16:44.791 +02:00 [INF] Executed DbCommand (56ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+2023-06-21 19:16:44.804 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:16:44.837 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7) in 121.747ms
+2023-06-21 19:16:44.839 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:16:44.840 +02:00 [ERR] HTTP GET /user/list responded 500 in 134.8619 ms
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Dot.Net.WebApi.Controllers.UserController.Home() in C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\Controllers\UserController.cs:line 110
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-06-21 19:16:44.850 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Dot.Net.WebApi.Controllers.UserController.Home() in C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\Controllers\UserController.cs:line 110
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-06-21 19:16:44.858 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/user/list - - - 500 - text/plain;+charset=utf-8 240.7229ms
+2023-06-21 19:17:02.236 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/user/list - -
+2023-06-21 19:17:02.292 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:17:02.298 +02:00 [INF] Route matched with {action = "Home", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Home() on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:17:07.282 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+2023-06-21 19:17:11.146 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:24:33.691 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:24:33.758 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:24:33.766 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-21 19:24:33.770 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-21 19:24:33.809 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-21 19:24:33.828 +02:00 [INF] Applying migration '20230621172426_SeedUserRolesMigration'.
+2023-06-21 19:24:33.929 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'da061d11-5867-4000-b560-7e84a0e8e976'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-06-21 19:24:33.938 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'1bdec776-f7b7-4cc7-8c7a-9529538fc0ac'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-06-21 19:24:34.028 +02:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (1, 1),
+(2, 2);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+2023-06-21 19:24:34.033 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [ConcurrencyStamp] = N'd72fece0-81c4-4b83-a951-d4d168be8722', [PasswordHash] = N'AQAAAAIAAYagAAAAEDR/KdVWT0R3/jDUBHJrVJLgXJeZhv9gQpal5gEsHBSX3EZhNl20Z+DBI9DvIeuk7Q==', [SecurityStamp] = N'c4a194d8-9681-40ae-9d8f-cff6a139530a'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-06-21 19:24:34.037 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [ConcurrencyStamp] = N'9e660363-5d4e-46d1-a4b4-746d8b5d483f', [PasswordHash] = N'AQAAAAIAAYagAAAAEKARAqTCDdbdnfVpdf+jTM4k9IaLF07VqRW/TrWeC8NVIe0/Ul2Z3ZioWMZdymEXPA==', [SecurityStamp] = N'33e9b626-c533-4595-9d5b-a540eeeda156'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-06-21 19:24:34.044 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230621172426_SeedUserRolesMigration', N'7.0.5');
+2023-06-21 19:24:53.078 +02:00 [INF] User profile is available. Using 'C:\Users\yahya\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-21 19:24:53.468 +02:00 [INF] Now listening on: http://localhost:5291
+2023-06-21 19:24:53.471 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-21 19:24:53.472 +02:00 [INF] Hosting environment: Development
+2023-06-21 19:24:53.473 +02:00 [INF] Content root path: C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7
+2023-06-21 19:24:58.717 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/index.html - -
+2023-06-21 19:24:59.247 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/index.html - - - 200 - text/html;charset=utf-8 542.0064ms
+2023-06-21 19:24:59.851 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_vs/browserLink - -
+2023-06-21 19:25:00.210 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - -
+2023-06-21 19:25:00.219 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 8.8143ms
+2023-06-21 19:25:00.310 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 458.3641ms
+2023-06-21 19:25:00.361 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - -
+2023-06-21 19:25:00.677 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 315.8348ms
+2023-06-21 19:25:14.649 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5291/user/login application/json 60
+2023-06-21 19:25:14.814 +02:00 [WRN] Failed to determine the https port for redirect.
+2023-06-21 19:25:14.827 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 19:25:14.897 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(DotNetEnglishP7.Identity.LoginUser) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:25:17.022 +02:00 [INF] Executed DbCommand (53ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:25:17.264 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-06-21 19:25:17.348 +02:00 [INF] Executed DbCommand (64ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:25:17.401 +02:00 [INF] Executed DbCommand (44ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-21 19:25:17.423 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__role_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2023-06-21 19:25:17.439 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-06-21 19:25:17.442 +02:00 [INF] UNKNOWN : /user/login : User logged successfully.
+2023-06-21 19:25:17.449 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-21 19:25:17.455 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7) in 2552.3125ms
+2023-06-21 19:25:17.457 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 19:25:17.459 +02:00 [INF] HTTP POST /user/login responded 200 in 2656.5566 ms
+2023-06-21 19:25:17.471 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5291/user/login application/json 60 - 200 0 - 2823.6353ms
+2023-06-21 19:25:22.965 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/user/list - -
+2023-06-21 19:25:23.055 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:25:23.064 +02:00 [INF] Route matched with {action = "Home", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Home() on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:25:27.047 +02:00 [INF] Executed DbCommand (59ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+2023-06-21 19:26:05.053 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:26:10.579 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:26:13.599 +02:00 [INF] 1 : /user/list : List of users retrieved successfully.
+2023-06-21 19:26:14.729 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetEnglishP7.Domain.User, DotNetEnglishP7, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-21 19:26:17.119 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7) in 54053.7258ms
+2023-06-21 19:26:17.122 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:26:17.124 +02:00 [INF] HTTP GET /user/list responded 200 in 54083.6200 ms
+2023-06-21 19:26:17.128 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/user/list - - - 200 - application/json;+charset=utf-8 54162.9015ms
+2023-06-21 19:28:06.956 +02:00 [INF] User profile is available. Using 'C:\Users\yahya\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-21 19:28:07.355 +02:00 [INF] Now listening on: http://localhost:5291
+2023-06-21 19:28:07.358 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-21 19:28:07.359 +02:00 [INF] Hosting environment: Development
+2023-06-21 19:28:07.361 +02:00 [INF] Content root path: C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7
+2023-06-21 19:28:09.987 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/index.html - -
+2023-06-21 19:28:10.704 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/index.html - - - 200 - text/html;charset=utf-8 723.0929ms
+2023-06-21 19:28:10.795 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_vs/browserLink - -
+2023-06-21 19:28:10.798 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - -
+2023-06-21 19:28:10.838 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 40.4063ms
+2023-06-21 19:28:10.876 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 81.1578ms
+2023-06-21 19:28:10.936 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - -
+2023-06-21 19:28:11.337 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 401.6704ms
+2023-06-21 19:28:31.494 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5291/user/login application/json 60
+2023-06-21 19:28:31.586 +02:00 [WRN] Failed to determine the https port for redirect.
+2023-06-21 19:28:31.601 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 19:28:31.643 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(DotNetEnglishP7.Identity.LoginUser) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:28:33.560 +02:00 [INF] Executed DbCommand (45ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:28:33.774 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-06-21 19:28:33.805 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:28:33.825 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-21 19:28:33.854 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[@__role_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2023-06-21 19:28:33.868 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-06-21 19:28:33.873 +02:00 [INF] UNKNOWN : /user/login : User logged successfully.
+2023-06-21 19:28:33.880 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-21 19:28:33.884 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7) in 2236.4795ms
+2023-06-21 19:28:33.886 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 19:28:33.888 +02:00 [INF] HTTP POST /user/login responded 200 in 2325.4578 ms
+2023-06-21 19:28:33.898 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5291/user/login application/json 60 - 200 0 - 2408.7432ms
+2023-06-21 19:28:37.899 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/user/list - -
+2023-06-21 19:28:37.931 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:28:37.938 +02:00 [INF] Route matched with {action = "Home", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Home() on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:28:38.046 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+2023-06-21 19:28:38.105 +02:00 [INF] Executed DbCommand (45ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:28:38.412 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:28:38.436 +02:00 [INF] 1 : /user/list : List of users retrieved successfully.
+2023-06-21 19:28:38.473 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetEnglishP7.Domain.User, DotNetEnglishP7, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-21 19:28:38.504 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7) in 564.5052ms
+2023-06-21 19:28:38.505 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:28:38.507 +02:00 [INF] HTTP GET /user/list responded 200 in 581.6736 ms
+2023-06-21 19:28:38.515 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/user/list - - - 200 - application/json;+charset=utf-8 616.6432ms
+2023-06-21 19:29:09.972 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5291/user/register application/json 122
+2023-06-21 19:29:09.989 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Register (DotNetEnglishP7)'
+2023-06-21 19:29:09.998 +02:00 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(DotNetEnglishP7.Identity.RegisterUser) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:29:10.371 +02:00 [INF] Executed DbCommand (55ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:29:10.618 +02:00 [INF] Executed DbCommand (56ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2023-06-21 19:29:10.648 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-21 19:29:10.655 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-21 19:29:21.940 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Register (DotNetEnglishP7) in 11939.5387ms
+2023-06-21 19:29:21.946 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Register (DotNetEnglishP7)'
+2023-06-21 19:29:21.951 +02:00 [ERR] HTTP POST /user/register responded 500 in 11960.9644 ms
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Dot.Net.WebApi.Controllers.UserController.Register(RegisterUser user) in C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\Controllers\UserController.cs:line 97
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-06-21 19:29:22.138 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Dot.Net.WebApi.Controllers.UserController.Register(RegisterUser user) in C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7\Controllers\UserController.cs:line 97
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-06-21 19:29:22.166 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5291/user/register application/json 122 - 500 - text/plain;+charset=utf-8 12193.9185ms
+2023-06-21 19:30:23.944 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5291/user/register application/json 122
+2023-06-21 19:30:23.966 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Register (DotNetEnglishP7)'
+2023-06-21 19:30:23.969 +02:00 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(DotNetEnglishP7.Identity.RegisterUser) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:30:33.240 +02:00 [INF] Executed DbCommand (96ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:30:33.271 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2023-06-21 19:30:53.518 +02:00 [INF] Executed DbCommand (76ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-21 19:31:08.560 +02:00 [INF] Executed DbCommand (85ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-21 19:32:31.421 +02:00 [INF] User profile is available. Using 'C:\Users\yahya\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-21 19:32:31.825 +02:00 [INF] Now listening on: http://localhost:5291
+2023-06-21 19:32:31.831 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-21 19:32:31.832 +02:00 [INF] Hosting environment: Development
+2023-06-21 19:32:31.833 +02:00 [INF] Content root path: C:\Users\yahya\source\repos\DotNetEnglishP7\DotNetEnglishP7\DotNetEnglishP7
+2023-06-21 19:32:34.159 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/index.html - -
+2023-06-21 19:32:35.395 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/index.html - - - 200 - text/html;charset=utf-8 1252.5931ms
+2023-06-21 19:32:35.466 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - -
+2023-06-21 19:32:35.488 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_vs/browserLink - -
+2023-06-21 19:32:35.518 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 52.2002ms
+2023-06-21 19:32:35.617 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 129.4525ms
+2023-06-21 19:32:36.026 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - -
+2023-06-21 19:32:36.281 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 255.5955ms
+2023-06-21 19:32:52.822 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5291/user/login application/json 60
+2023-06-21 19:32:52.899 +02:00 [WRN] Failed to determine the https port for redirect.
+2023-06-21 19:32:52.917 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 19:32:53.006 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(DotNetEnglishP7.Identity.LoginUser) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:32:55.281 +02:00 [INF] Executed DbCommand (63ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:32:56.006 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-06-21 19:32:56.062 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:32:56.081 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-21 19:32:56.112 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__role_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2023-06-21 19:32:56.129 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-06-21 19:32:56.134 +02:00 [INF] UNKNOWN : /user/login : User logged successfully.
+2023-06-21 19:32:56.143 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-21 19:32:56.150 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7) in 3138.3877ms
+2023-06-21 19:32:56.153 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Login (DotNetEnglishP7)'
+2023-06-21 19:32:56.156 +02:00 [INF] HTTP POST /user/login responded 200 in 3286.8148 ms
+2023-06-21 19:32:56.170 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5291/user/login application/json 60 - 200 0 - 3358.1219ms
+2023-06-21 19:33:15.061 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5291/user/register application/json 122
+2023-06-21 19:33:15.154 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Register (DotNetEnglishP7)'
+2023-06-21 19:33:15.165 +02:00 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(DotNetEnglishP7.Identity.RegisterUser) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:33:18.868 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:33:19.052 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2023-06-21 19:33:21.456 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-21 19:33:23.445 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-21 19:33:25.555 +02:00 [INF] Executed DbCommand (60ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-21 19:33:25.589 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2023-06-21 19:33:25.601 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-21 19:33:25.636 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:33:25.708 +02:00 [INF] Executed DbCommand (30ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p17='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p18='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [Users] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [FullName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+OUTPUT 1
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+2023-06-21 19:33:26.730 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2023-06-21 19:33:26.736 +02:00 [INF] 1 : /user/register : User created successfully.
+2023-06-21 19:33:31.605 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-21 19:33:31.610 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Register (DotNetEnglishP7) in 16443.205ms
+2023-06-21 19:33:31.611 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Register (DotNetEnglishP7)'
+2023-06-21 19:33:31.612 +02:00 [INF] HTTP POST /user/register responded 200 in 16458.7126 ms
+2023-06-21 19:33:31.617 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5291/user/register application/json 122 - 200 0 - 16563.7264ms
+2023-06-21 19:33:46.705 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5291/user/register application/json 137
+2023-06-21 19:33:50.285 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Register (DotNetEnglishP7)'
+2023-06-21 19:33:50.290 +02:00 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(DotNetEnglishP7.Identity.RegisterUser) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:33:50.433 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:33:50.470 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2023-06-21 19:33:50.479 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-21 19:33:50.502 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-21 19:33:50.511 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2023-06-21 19:33:50.516 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-21 19:33:50.525 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-21 19:33:50.537 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p17='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p18='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [Users] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [FullName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+OUTPUT 1
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+2023-06-21 19:33:50.548 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2023-06-21 19:33:50.551 +02:00 [INF] 1 : /user/register : User created successfully.
+2023-06-21 19:33:50.552 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-21 19:33:50.553 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Register (DotNetEnglishP7) in 261.7902ms
+2023-06-21 19:33:50.554 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Register (DotNetEnglishP7)'
+2023-06-21 19:33:50.555 +02:00 [INF] HTTP POST /user/register responded 200 in 270.4071 ms
+2023-06-21 19:33:50.557 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5291/user/register application/json 137 - 200 0 - 3853.1384ms
+2023-06-21 19:33:57.498 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/user/list - -
+2023-06-21 19:33:57.546 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:33:57.580 +02:00 [INF] Route matched with {action = "Home", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Home() on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:33:57.638 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+2023-06-21 19:33:57.649 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:33:57.658 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:33:57.664 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:33:57.669 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:33:57.671 +02:00 [INF] 1 : /user/list : List of users retrieved successfully.
+2023-06-21 19:33:57.682 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetEnglishP7.Domain.User, DotNetEnglishP7, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-21 19:33:57.716 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7) in 132.7153ms
+2023-06-21 19:33:57.721 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:33:57.725 +02:00 [INF] HTTP GET /user/list responded 200 in 200.9648 ms
+2023-06-21 19:33:57.728 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/user/list - - - 200 - application/json;+charset=utf-8 231.3675ms
+2023-06-21 19:34:09.250 +02:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5291/user/delete/1005 - -
+2023-06-21 19:34:09.269 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Delete (DotNetEnglishP7)'
+2023-06-21 19:34:09.328 +02:00 [INF] Route matched with {action = "Delete", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:34:09.358 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2023-06-21 19:34:09.369 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2023-06-21 19:34:09.371 +02:00 [ERR] 1 : /user/delete/1005 : User unauthorized.
+2023-06-21 19:34:09.372 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 401
+2023-06-21 19:34:09.373 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Delete (DotNetEnglishP7) in 44.0952ms
+2023-06-21 19:34:09.374 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Delete (DotNetEnglishP7)'
+2023-06-21 19:34:09.375 +02:00 [INF] HTTP DELETE /user/delete/1005 responded 401 in 112.2343 ms
+2023-06-21 19:34:09.377 +02:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5291/user/delete/1005 - - - 401 0 - 129.0668ms
+2023-06-21 19:35:03.740 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/index.html - -
+2023-06-21 19:35:03.850 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/index.html - - - 200 - text/html;charset=utf-8 114.1396ms
+2023-06-21 19:35:04.037 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - -
+2023-06-21 19:35:04.038 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/_vs/browserLink - -
+2023-06-21 19:35:04.063 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 25.6504ms
+2023-06-21 19:35:04.153 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 114.3505ms
+2023-06-21 19:35:04.229 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - -
+2023-06-21 19:35:04.308 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 78.5567ms
+2023-06-21 19:35:11.682 +02:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5291/user/delete/1005 - -
+2023-06-21 19:35:11.729 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Delete (DotNetEnglishP7)'
+2023-06-21 19:35:11.747 +02:00 [INF] Route matched with {action = "Delete", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:35:11.821 +02:00 [INF] Executed DbCommand (30ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2023-06-21 19:35:11.899 +02:00 [INF] Executed DbCommand (59ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Users]
+OUTPUT 1
+WHERE [Id] = @p0 AND [ConcurrencyStamp] = @p1;
+2023-06-21 19:35:11.920 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2023-06-21 19:35:11.922 +02:00 [INF] 1 : /user/delete/1005 : User 1005 deleted successfully.
+2023-06-21 19:35:11.923 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-21 19:35:11.925 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Delete (DotNetEnglishP7) in 175.7747ms
+2023-06-21 19:35:11.926 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Delete (DotNetEnglishP7)'
+2023-06-21 19:35:11.929 +02:00 [INF] HTTP DELETE /user/delete/1005 responded 200 in 205.3622 ms
+2023-06-21 19:35:11.934 +02:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5291/user/delete/1005 - - - 200 0 - 254.4267ms
+2023-06-21 19:35:18.664 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/user/list - -
+2023-06-21 19:35:18.736 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:35:18.759 +02:00 [INF] Route matched with {action = "Home", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Home() on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:35:18.801 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+2023-06-21 19:35:18.821 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:35:18.833 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:35:18.846 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:35:18.849 +02:00 [INF] 1 : /user/list : List of users retrieved successfully.
+2023-06-21 19:35:18.850 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetEnglishP7.Domain.User, DotNetEnglishP7, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-21 19:35:18.859 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7) in 95.7342ms
+2023-06-21 19:35:18.862 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:35:18.863 +02:00 [INF] HTTP GET /user/list responded 200 in 145.9378 ms
+2023-06-21 19:35:18.865 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/user/list - - - 200 - application/json;+charset=utf-8 202.4003ms
+2023-06-21 19:35:22.846 +02:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5291/user/delete/1004 - -
+2023-06-21 19:35:22.878 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Delete (DotNetEnglishP7)'
+2023-06-21 19:35:22.882 +02:00 [INF] Route matched with {action = "Delete", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:35:22.940 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2023-06-21 19:35:22.971 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Users]
+OUTPUT 1
+WHERE [Id] = @p0 AND [ConcurrencyStamp] = @p1;
+2023-06-21 19:35:22.981 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2023-06-21 19:35:22.983 +02:00 [INF] 1 : /user/delete/1004 : User 1004 deleted successfully.
+2023-06-21 19:35:22.983 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-21 19:35:22.984 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Delete (DotNetEnglishP7) in 93.7094ms
+2023-06-21 19:35:22.986 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Delete (DotNetEnglishP7)'
+2023-06-21 19:35:22.987 +02:00 [INF] HTTP DELETE /user/delete/1004 responded 200 in 108.5607 ms
+2023-06-21 19:35:22.988 +02:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5291/user/delete/1004 - - - 200 0 - 142.8261ms
+2023-06-21 19:35:26.688 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5291/user/list - -
+2023-06-21 19:35:26.723 +02:00 [INF] Executing endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:35:26.755 +02:00 [INF] Route matched with {action = "Home", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Home() on controller Dot.Net.WebApi.Controllers.UserController (DotNetEnglishP7).
+2023-06-21 19:35:26.834 +02:00 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+2023-06-21 19:35:26.867 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:35:26.879 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-06-21 19:35:26.881 +02:00 [INF] 1 : /user/list : List of users retrieved successfully.
+2023-06-21 19:35:26.882 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetEnglishP7.Domain.User, DotNetEnglishP7, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-21 19:35:26.886 +02:00 [INF] Executed action Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7) in 128.65ms
+2023-06-21 19:35:26.890 +02:00 [INF] Executed endpoint 'Dot.Net.WebApi.Controllers.UserController.Home (DotNetEnglishP7)'
+2023-06-21 19:35:26.891 +02:00 [INF] HTTP GET /user/list responded 200 in 179.6310 ms
+2023-06-21 19:35:26.894 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5291/user/list - - - 200 - application/json;+charset=utf-8 204.7145ms

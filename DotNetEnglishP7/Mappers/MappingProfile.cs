@@ -17,7 +17,8 @@ namespace DotNetEnglishP7.Mappers
                 cfg.CreateMap<Rule, Rule>();
                 cfg.CreateMap<Trade, Trade>();
                 cfg.CreateMap<User, AppUser>();
-                cfg.CreateMap<AppUser, User>();
+                cfg.CreateMap<AppUser, User>()
+                .ForMember(dest => dest.Role, opt => opt.Ignore());
                 cfg.CreateMap<AppUser, AppUser>();
                 cfg.CreateMap<User, User>();
                 cfg.CreateMap<RegisterUser, AppUser>();

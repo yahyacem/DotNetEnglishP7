@@ -91,7 +91,7 @@ namespace Dot.Net.WebApi.Controllers
 
             if (roleToAdd == null)
             {
-                roleToAdd = _roleManager.FindByNameAsync("Default").Result;
+                roleToAdd = _roleManager.FindByNameAsync("User").Result;
             }
 
             await _userManager.AddToRoleAsync(userToCreate, roleToAdd.Name);
@@ -106,7 +106,10 @@ namespace Dot.Net.WebApi.Controllers
             var listUsers = new List<User>();
             foreach(var user in await _userManager.Users.ToListAsync())
             {
-                listUsers.Add(_mapper.Map<User>(user));
+                var roles = await _userManager.GetRolesAsync(user);
+                string role = roles.Count > 0 ? roles[0] : "";
+                listUsers.Add(_mapper.Map<User>(user, opt => 
+                opt.AfterMap((src, dest) => dest.Role = role)));
             }
             await AddLogInformation("List of users retrieved successfully.");
             return Ok(listUsers);
@@ -122,8 +125,12 @@ namespace Dot.Net.WebApi.Controllers
                 return NotFound();
             }
 
+            var roles = await _userManager.GetRolesAsync(user);
+            string role = roles.Count > 0 ? roles[0] : "";
+
             await AddLogInformation($"User {id} returned successfully.");
-            return Ok(_mapper.Map<User>(user));
+            return Ok(_mapper.Map<User>(user, opt =>
+                opt.AfterMap((src, dest) => dest.Role = role)));
         }
         [Authorize]
         [HttpPut("/user/update/{id}")]
@@ -143,11 +150,12 @@ namespace Dot.Net.WebApi.Controllers
                 return NotFound();
             }
 
-            if (userToUpdate.Id.ToString() != _userManager.GetUserId(User) && !User.IsInRole("admin"))
+            if (userToUpdate.Id.ToString() != _userManager.GetUserId(User) && !User.IsInRole("SuperAdmin"))
             {
                 await AddLogError($"User unauthorized.");
                 return Unauthorized();
             }
+
 
             user.Id = id;
             _mapper.Map(user, userToUpdate);
@@ -158,6 +166,17 @@ namespace Dot.Net.WebApi.Controllers
                 await AddLogError($"Error when trying to update user {id}.");
                 return StatusCode(500, result.Errors);
             }
+
+            var currentRoles = await _userManager.GetRolesAsync(userToUpdate);
+            var newRole = await _roleManager.FindByNameAsync(user.Role);
+            if (newRole == null)
+            {
+                await AddLogError($"Error when trying to update user {id}.");
+                return BadRequest($"Role {user.Role} doesn't exist.");
+            }
+
+            await _userManager.RemoveFromRolesAsync(userToUpdate, currentRoles);
+            await _userManager.AddToRoleAsync(userToUpdate, user.Role);
 
             await AddLogInformation($"User {id} updated successfully.");
             return Ok();
@@ -180,7 +199,7 @@ namespace Dot.Net.WebApi.Controllers
                 return NotFound();
             }
 
-            if (userToDelete.Id.ToString() != _userManager.GetUserId(User) && !User.IsInRole("admin"))
+            if (userToDelete.Id.ToString() != _userManager.GetUserId(User) && !User.IsInRole("SuperAdmin"))
             {
                 await AddLogError($"User unauthorized.");
                 return Unauthorized();
